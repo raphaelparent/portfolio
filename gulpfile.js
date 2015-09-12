@@ -26,10 +26,10 @@ gulp.task('styles', function ()
 	return gulp.src(src+'site/sass/base.sass')
 		.pipe(sass())
 		.pipe(autoprefixer('last 2 version'))
-		.pipe(gulp.dest(dest+'stylesheets'))
+		.pipe(gulp.dest(dest+'site/stylesheets'))
 		.pipe(rename({ suffix: '.min' }))
 		.pipe(minifycss())
-		.pipe(gulp.dest(dest+'stylesheets/site'))
+		.pipe(gulp.dest(dest+'site/stylesheets'))
 		.pipe(notify('Style compiled. WOOHOO!'));
 });
 
@@ -45,7 +45,7 @@ gulp.task('scripts', function ()
 		.pipe(jshint('.jshintrc'))
 		.pipe(jshint.reporter('jshint-stylish'))
 		.pipe(concat('bundle.js'))
-		.pipe(gulp.dest(src+'javascripts/bundle/'));
+		.pipe(gulp.dest(src+'site/javascripts/bundle/'));
 });
 
 //----------------------------------------------------------------------------------------------------
@@ -79,7 +79,7 @@ gulp.task('watch', function ()
 	gulp.watch(src+'site/sass/**/*.sass', ['styles']);
 	gulp.watch(src+'site/javascripts/**/*.js', ['scripts']);
 	gulp.watch(src+'site/javascripts/bundle/bundle.js', ['browserify']);
-	//gulp.watch(dest+'javascripts/main.js', ['uglify']);
+	//gulp.watch(dest+'site/javascripts/main.js', ['uglify']);
 });
 
 gulp.task('site', function ()
@@ -98,10 +98,10 @@ gulp.task('styles_admin', function ()
 	return gulp.src(src+'admin/sass/base.sass')
 		.pipe(sass({outputStyle: 'expanded'}))
 		.pipe(autoprefixer('last 2 version'))
-		.pipe(gulp.dest(dest+'stylesheets'))
+		.pipe(gulp.dest(dest+'admin/stylesheets'))
 		.pipe(rename({ suffix: '.min' }))
 		.pipe(minifycss())
-		.pipe(gulp.dest(dest+'stylesheets/admin'))
+		.pipe(gulp.dest(dest+'admin/stylesheets'))
 		.pipe(notify('Style compiled. WOOHOO!'));
 });
 
@@ -117,7 +117,7 @@ gulp.task('scripts_admin', function ()
 		.pipe(jshint('.jshintrc'))
 		.pipe(jshint.reporter('jshint-stylish'))
 		.pipe(concat('bundle.js'))
-		.pipe(gulp.dest(src+'javascripts/bundle/'));
+		.pipe(gulp.dest(src+'admin/javascripts/bundle/'));
 });
 
 //----------------------------------------------------------------------------------------------------
@@ -128,7 +128,7 @@ gulp.task('browserify_admin', function()
 	return browserify(src+'admin/javascripts/bundle/bundle.js')
 		.bundle()
 		.pipe(source('main.js'))
-		.pipe(gulp.dest(dest+'/javascripts/admin/'));
+		.pipe(gulp.dest(dest+'admin/javascripts/'));
 });
 
 //----------------------------------------------------------------------------------------------------
@@ -151,7 +151,7 @@ gulp.task('watch_admin', function ()
 	gulp.watch(src+'admin/sass/**/*.sass', ['styles']);
 	gulp.watch(src+'admin/javascripts/**/*.js', ['scripts']);
 	gulp.watch(src+'admin/javascripts/bundle/bundle.js', ['browserify']);
-	//gulp.watch(dest+'javascripts/main.js', ['uglify']);
+	//gulp.watch(dest+'admin/javascripts/main.js', ['uglify']);
 });
 
 gulp.task('admin', function ()
