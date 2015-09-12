@@ -13,7 +13,7 @@ Currently under construction.
 
 ## Things to do
 
- - Build the html and css for the admin
+ - Build the html and css for the admin (in progress)
    - Manage projects
    - Manage contact information
  - Build the API
