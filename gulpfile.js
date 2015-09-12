@@ -23,13 +23,13 @@ var dest = './public/';
 //----------------------------------------------------------------------------------------------------
 gulp.task('styles', function ()
 {
-	return gulp.src(src+'sass/base.sass')
+	return gulp.src(src+'site/sass/base.sass')
 		.pipe(sass())
 		.pipe(autoprefixer('last 2 version'))
 		.pipe(gulp.dest(dest+'stylesheets'))
 		.pipe(rename({ suffix: '.min' }))
 		.pipe(minifycss())
-		.pipe(gulp.dest(dest+'stylesheets'))
+		.pipe(gulp.dest(dest+'stylesheets/site'))
 		.pipe(notify('Style compiled. WOOHOO!'));
 });
 
@@ -40,7 +40,7 @@ gulp.task('styles', function ()
 gulp.task('scripts', function ()
 {
 	return gulp.src([
-			src+'javascripts/main.js'
+			src+'site/javascripts/main.js'
 		])
 		.pipe(jshint('.jshintrc'))
 		.pipe(jshint.reporter('jshint-stylish'))
@@ -53,10 +53,10 @@ gulp.task('scripts', function ()
 //----------------------------------------------------------------------------------------------------
 gulp.task('browserify', function()
 {
-	return browserify(src+'/javascripts/bundle/bundle.js')
+	return browserify(src+'site/javascripts/bundle/bundle.js')
 		.bundle()
 		.pipe(source('main.js'))
-		.pipe(gulp.dest(dest+'/javascripts/'));
+		.pipe(gulp.dest(dest+'site/javascripts/'));
 });
 
 //----------------------------------------------------------------------------------------------------
@@ -64,10 +64,10 @@ gulp.task('browserify', function()
 //----------------------------------------------------------------------------------------------------
 gulp.task('uglify', function()
 {
-	return gulp.src(dest+'javascripts/main.js')
+	return gulp.src(dest+'site/javascripts/main.js')
 		.pipe(rename({ suffix: '.min' }))
 		.pipe(uglify())
-		.pipe(gulp.dest(dest+'javascripts'))
+		.pipe(gulp.dest(dest+'site/javascripts/'))
 		.pipe(notify('Scripts compiled, browserified and minified. YEEEEAH!'));
 });
 
@@ -76,13 +76,85 @@ gulp.task('uglify', function()
 //----------------------------------------------------------------------------------------------------
 gulp.task('watch', function ()
 {
-	gulp.watch(src+'sass/**/*.scss', ['styles']);
-	gulp.watch(src+'javascripts/**/*.js', ['scripts']);
-	gulp.watch(src+'javascripts/bundle/bundle.js', ['browserify']);
+	gulp.watch(src+'site/sass/**/*.sass', ['styles']);
+	gulp.watch(src+'site/javascripts/**/*.js', ['scripts']);
+	gulp.watch(src+'site/javascripts/bundle/bundle.js', ['browserify']);
 	//gulp.watch(dest+'javascripts/main.js', ['uglify']);
 });
 
-gulp.task('default', function ()
+gulp.task('site', function ()
 {
 	gulp.start('styles', 'scripts', 'browserify', /*'uglify',*/ 'watch');
+});
+
+//----------------------------------------------------------------------------------------------------
+// COMPILE
+// AUTOPREFIXER
+// CONCATENATE
+// MINIFY
+//----------------------------------------------------------------------------------------------------
+gulp.task('styles_admin', function ()
+{
+	return gulp.src(src+'admin/sass/base.sass')
+		.pipe(sass({outputStyle: 'expanded'}))
+		.pipe(autoprefixer('last 2 version'))
+		.pipe(gulp.dest(dest+'stylesheets'))
+		.pipe(rename({ suffix: '.min' }))
+		.pipe(minifycss())
+		.pipe(gulp.dest(dest+'stylesheets/admin'))
+		.pipe(notify('Style compiled. WOOHOO!'));
+});
+
+//----------------------------------------------------------------------------------------------------
+// CONCATENATE IN BUNDLE FOR BROWSERIFY
+// * Need to add files manually so the order can be the good one.
+//----------------------------------------------------------------------------------------------------
+gulp.task('scripts_admin', function ()
+{
+	return gulp.src([
+			src+'admin/javascripts/main.js'
+		])
+		.pipe(jshint('.jshintrc'))
+		.pipe(jshint.reporter('jshint-stylish'))
+		.pipe(concat('bundle.js'))
+		.pipe(gulp.dest(src+'javascripts/bundle/'));
+});
+
+//----------------------------------------------------------------------------------------------------
+// BROWSERIFY
+//----------------------------------------------------------------------------------------------------
+gulp.task('browserify_admin', function()
+{
+	return browserify(src+'admin/javascripts/bundle/bundle.js')
+		.bundle()
+		.pipe(source('main.js'))
+		.pipe(gulp.dest(dest+'/javascripts/admin/'));
+});
+
+//----------------------------------------------------------------------------------------------------
+// MINIFY
+//----------------------------------------------------------------------------------------------------
+gulp.task('uglify_admin', function()
+{
+	return gulp.src(dest+'admin/javascripts/main.js')
+		.pipe(rename({ suffix: '.min' }))
+		.pipe(uglify())
+		.pipe(gulp.dest(dest+'admin/javascripts/'))
+		.pipe(notify('Scripts compiled, browserified and minified. YEEEEAH!'));
+});
+
+//----------------------------------------------------------------------------------------------------
+// WATCH ALL THOSE FILES
+//----------------------------------------------------------------------------------------------------
+gulp.task('watch_admin', function ()
+{
+	gulp.watch(src+'admin/sass/**/*.sass', ['styles']);
+	gulp.watch(src+'admin/javascripts/**/*.js', ['scripts']);
+	gulp.watch(src+'admin/javascripts/bundle/bundle.js', ['browserify']);
+	//gulp.watch(dest+'javascripts/main.js', ['uglify']);
+});
+
+gulp.task('admin', function ()
+{
+	gulp.start('styles_admin', 'scripts_admin', 'browserify_admin', /*'uglify_admin',*/ 'watch_admin');
 });
