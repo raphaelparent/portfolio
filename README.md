@@ -1,52 +1,29 @@
-# What is this
+# My portfolio
 
-This is a boilerplate for Nodejs v4.0.0 projects.
+Currently under construction.
 
-## What does this include?
+## Things I use
 
-This boilerplate is shipped with a couple thing.
-
- - Gulp.
- - Mysql.
- - JSHint.
- - Browserify.
+ - Gulp
+ - Nodejs
+ - Mysql
  - SASS with the Sass syntax
- - 
- 
-#### Gulp tasks
+ - Browserify
+ - ES6
 
-`scripts`, `browserify` and `uglify` to handle all the js stuff.
+## Things to do
 
-`styles` to handle all the sass and css stuff.
-
-`default` that runs all the tasks then watches for changes.
-
-## How to start using it.
-
-Start by installing all the required modules.
-
-    npm install
-
-If you have a databases, you will want to set things in the config file and uncomment the connection to the database in app.js.
-
-## Couple things to be aware of.
-
-#### Gulp
-Every time you add a .js file, make sure to add it in the gulpfile under the scripts task.
-
-#### Routing
-You can have multiple files with all your routes, just import them in the index.js file in the route folder like this.
-
-    require('./FILE')(app);
-
-And doing something like this in the file you import.
-
-    module.exports = function(app)
-    {
-      app.get('/ROUTES', function(req,res){
-        // Stuff...
-      })
-
-      // More routes...
-    };
-
+ - Build the html and css for the admin
+   - Manage projects
+   - Manage contact information
+ - Build the API
+   - Add a project
+   - Get projects
+   - Get single project
+   - Update project
+   - Delete project
+   - Edit contact information
+ - Build the front-end
+   - Home page with all projects
+   - Single project page
+   - Contact page 
