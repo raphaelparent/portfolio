@@ -102,7 +102,7 @@ gulp.task('styles_admin', function ()
 		.pipe(rename({ suffix: '.min' }))
 		.pipe(minifycss())
 		.pipe(gulp.dest(dest+'admin/stylesheets'))
-		.pipe(notify('Style compiled. WOOHOO!'));
+		.pipe(notify('Admin style compiled'));
 });
 
 //----------------------------------------------------------------------------------------------------
@@ -140,7 +140,7 @@ gulp.task('uglify_admin', function()
 		.pipe(rename({ suffix: '.min' }))
 		.pipe(uglify())
 		.pipe(gulp.dest(dest+'admin/javascripts/'))
-		.pipe(notify('Scripts compiled, browserified and minified. YEEEEAH!'));
+		.pipe(notify('Admin scripts'));
 });
 
 //----------------------------------------------------------------------------------------------------
@@ -148,9 +148,9 @@ gulp.task('uglify_admin', function()
 //----------------------------------------------------------------------------------------------------
 gulp.task('watch_admin', function ()
 {
-	gulp.watch(src+'admin/sass/**/*.sass', ['styles']);
-	gulp.watch(src+'admin/javascripts/**/*.js', ['scripts']);
-	gulp.watch(src+'admin/javascripts/bundle/bundle.js', ['browserify']);
+	gulp.watch(src+'admin/sass/**/*.sass', ['styles_admin']);
+	gulp.watch(src+'admin/javascripts/**/*.js', ['scripts_admin']);
+	gulp.watch(src+'admin/javascripts/bundle/bundle.js', ['browserify_admin']);
 	//gulp.watch(dest+'admin/javascripts/main.js', ['uglify']);
 });
 
