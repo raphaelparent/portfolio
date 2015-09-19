@@ -1,5 +1,5 @@
 module.exports = function(app)
 {
-	require('./admin')(app);
+	require('./admin/index')(app);
 };
 

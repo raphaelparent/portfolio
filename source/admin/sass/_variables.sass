@@ -1,0 +1,26 @@
+
+//-----------------------------------------------------
+// Variables
+//-----------------------------------------------------
+$primary: #80DEEA
+$primary-light: lighten($primary, 15%)
+$bg-light: #eee
+$dark-text: #333
+
+//-----------------------------------------------------
+// Mixins
+//-----------------------------------------------------
+=clear-float
+	overflow: auto
+
+=button
+	padding: 5px 15px
+	text-align: center
+	background-color: $primary-light
+	border: 1px solid $primary
+	border-radius: 3px
+	cursor: pointer
+	transition: background-color 0.1s linear
+
+	&:hover
+		background-color: $primary

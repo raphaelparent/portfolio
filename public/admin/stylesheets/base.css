@@ -51,13 +51,26 @@ table {
   border-spacing: 0;
 }
 
+.row {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.half {
+  width: 47%;
+  margin-right: 3%;
+  float: left;
+}
+
 body {
   width: 1000px;
   display: block;
   margin: 0 auto;
-  background-color: #eee;
   color: #333;
   font-family: 'Open Sans', helvetica, arial, sans-serif;
+  letter-spacing: 1.5px;
+  font-size: 16px;
+  background-color: #eee;
 }
 
 .container {
@@ -65,19 +78,32 @@ body {
   padding-top: 15px;
 }
 
-.container section {
-  background-color: #fff;
-  border-radius: 3px;
-  padding: 10px 20px;
+section.block {
   margin-bottom: 15px;
 }
 
-.container section:first-child {
+section.block:first-child {
   min-height: 300px;
 }
 
+section.block header {
+  border-radius: 3px 3px 0 0;
+  background-color: #f6f6f6;
+  padding: 10px 20px;
+}
+
+section.block header i {
+  margin-right: 10px;
+}
+
+section.block article {
+  background-color: #fff;
+  border-radius: 0 0 3px 3px;
+  padding: 15px 20px;
+  overflow: auto;
+}
+
 h1, h2, h3, h4, h5 {
-  padding-bottom: 10px;
   font-weight: bold;
   text-transform: uppercase;
 }
@@ -98,8 +124,46 @@ h4 {
   font-size: 14px;
 }
 
-i {
-  margin-right: 10px;
+a {
+  color: #333;
+  text-decoration: none;
+  font-size: 11px;
+}
+
+.divider {
+  display: block;
+  width: 100%;
+  height: 1px;
+  margin: 15px 0;
+  background-color: #eee;
+}
+
+.button {
+  margin: 0 10px;
+  padding: 5px 15px;
+  text-align: center;
+  background-color: #c2eff5;
+  border: 1px solid #80DEEA;
+  border-radius: 3px;
+  cursor: pointer;
+  -webkit-transition: background-color 0.1s linear;
+          transition: background-color 0.1s linear;
+}
+
+.button:hover {
+  background-color: #80DEEA;
+}
+
+input {
+  padding: 5px 15px;
+  border-radius: 3px;
+  border: 1px solid #bbbbbb;
+}
+
+input:focus {
+  outline: none;
+  border-color: #80DEEA;
+  box-shadow: 0 0 1px 2px #c2eff5;
 }
 
 .side-nav {
@@ -130,6 +194,10 @@ i {
   border-radius: 0 0 3px 3px;
 }
 
+.side-nav li.alone a {
+  border-radius: 3px;
+}
+
 .side-nav a {
   display: block;
   padding: 15px 10px;
@@ -143,4 +211,68 @@ i {
 .side-nav a:hover {
   background-color: #28262c;
   color: #fafafa;
+}
+
+.side-nav i {
+  margin-right: 10px;
+}
+
+.project-card {
+  padding: 10px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  border-radius: 3px;
+  -webkit-transition: all 0.2s ease-in;
+          transition: all 0.2s ease-in;
+  border: 1px solid #80DEEA;
+  overflow: auto;
+}
+
+.project-card img, .project-card .body {
+  float: left;
+}
+
+.project-card img {
+  max-width: 100%;
+  border-radius: 50%;
+  border: 1px solid #80DEEA;
+}
+
+.project-card .body {
+  padding: 10px;
+}
+
+.project-card p {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+.project-card ul {
+  margin-top: 17px;
+}
+
+.project-card li {
+  float: left;
+  padding: 5px 15px;
+  text-align: center;
+  background-color: #c2eff5;
+  border: 1px solid #80DEEA;
+  border-radius: 3px;
+  cursor: pointer;
+  -webkit-transition: background-color 0.1s linear;
+          transition: background-color 0.1s linear;
+}
+
+.project-card li:hover {
+  background-color: #80DEEA;
+}
+
+.project-card li:first-child {
+  border-radius: 3px 0 0 3px;
+}
+
+.project-card li:last-child {
+  border-radius: 0 3px 3px 0;
+  border-left: none;
 }

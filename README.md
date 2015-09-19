@@ -13,8 +13,9 @@ Currently under construction.
 
 ## Things to do
 
- - Build the html and css for the admin (in progress)
-   - Manage projects
+ - Build the html and css for the admin
+   - ~~All projects~~
+   - Add and edit a project
    - Manage contact information
  - Build the API
    - Add a project

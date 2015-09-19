@@ -1,12 +1,19 @@
 doctype html
 html
   head
-    title raphaelp | #{title}
+    title raphaelp | #{title.toLowerCase()}
     link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800,700italic,600italic,400italic')
     link(rel='stylesheet', href='/admin/stylesheets/themify-icons.css')
     link(rel='stylesheet', href='/admin/stylesheets/base.css')
-  body
+  body(class="#{ title.toLowerCase() }")
     include admin/_sidenav
-    block content
+
+    div.container
+      section.block
+        header
+          h3
+            i(class="#{ icon }")
+            | #{ title }
+        block content
 
     script(src='/admin/javascripts/main.js')
