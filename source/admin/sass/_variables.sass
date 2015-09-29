@@ -16,6 +16,9 @@ $dark-text: #333
 =button
 	padding: 5px 15px
 	text-align: center
+	font-weight: 600
+	letter-spacing: inherit
+	text-transform: uppercase
 	background-color: $primary-light
 	border: 1px solid $primary
 	border-radius: 3px
@@ -24,3 +27,17 @@ $dark-text: #333
 
 	&:hover
 		background-color: $primary
+
+=reset-outline
+	&:focus
+		outline: none
+		border-color: $primary
+		box-shadow: 0 0 1px 2px $primary-light
+
+=input
+	position: relative
+	top: -5px
+	padding: 5px
+	border-radius: 3px
+	border: 1px solid darken($bg-light, 20%)
+	+reset-outline

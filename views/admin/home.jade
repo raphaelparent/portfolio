@@ -2,4 +2,27 @@ extends ../layout_admin
 
 block content
   article
-   | Lorem ipsum dolor sit amet.
+
+    h2 Welcome to your portfolio content manager
+
+    h4 Latest projects
+
+    span.divider
+
+    div.half.project-card
+      img(src="http://www.fillmurray.com/100/100")
+      section.body
+        p Project name
+        p Created Date
+        ul
+          li: i.ti-pencil-alt
+          li: i.ti-trash
+
+    div.half.project-card
+      img(src="http://www.fillmurray.com/100/100")
+      section.body
+        p Project name 2
+        p Created Date 2
+        ul
+          li: i.ti-pencil-alt
+          li: i.ti-trash

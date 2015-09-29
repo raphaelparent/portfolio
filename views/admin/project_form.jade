@@ -1,4 +1,48 @@
 extends ../layout_admin
 
 block content
-  article lorem ipsum project
+  article
+    form(action="/api/projects/create")
+
+      div.row
+        h4 TEXT
+
+      span.divider
+
+      div.row
+        label(for="name") Name :
+        input(type="text", id="name", name="name")
+
+      div.row
+        label(for="link") Link :
+        input(type="text", id="link", name="link")
+
+      div.row
+        label(for="categories") Categories :
+        input(type="text", id="categories", name="categories")
+
+      div.row
+        label(for="desc") Description :
+        textarea(id="desc", name="desc")
+
+      div.row
+        label(for="credits") Credits :
+        textarea(id="credits", name="credits")
+
+      div.row
+        h4 IMAGES
+
+      span.divider
+
+      div.row
+        label(for="thumbnail") Thumbnail :
+        input(type="file", id="thumbnail", name="thumbnail")
+
+      div.row
+        label(for="cover") Cover :
+        input(type="file", id="cover", name="cover")
+
+    span.divider
+
+    div.row
+      button(type="submit") Create

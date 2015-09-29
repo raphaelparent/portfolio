@@ -9,13 +9,33 @@
 	margin: 0 10px
 	+button
 
-input
-	padding: 5px 15px
-	border-radius: 3px
-	border: 1px solid darken($bg-light, 20%)
+button[type="submit"]
+	+button
 
-	&:focus
-		outline: none
-		border-color: $primary
-		box-shadow: 0 0 1px 2px $primary-light
+input[type="text"], textarea
+	+input
 
+input[type="text"]
+	.actions &
+		position: relative
+		top: 1px
+
+input[type="file"]
+	+reset-outline
+
+textarea
+	min-height: 100px
+
+form
+	.row
+		display: table
+
+		label, input, textarea
+			display: table-cell
+			vertical-align: top
+
+		label
+			width: 150px
+
+		input[type="text"], textarea
+			width: 70%

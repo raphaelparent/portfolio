@@ -68,8 +68,8 @@ body {
   margin: 0 auto;
   color: #333;
   font-family: 'Open Sans', helvetica, arial, sans-serif;
-  letter-spacing: 1.5px;
-  font-size: 16px;
+  letter-spacing: 1.2px;
+  font-size: 14px;
   background-color: #eee;
 }
 
@@ -88,7 +88,7 @@ section.block:first-child {
 
 section.block header {
   border-radius: 3px 3px 0 0;
-  background-color: #f6f6f6;
+  background-color: #e6e6e6;
   padding: 10px 20px;
 }
 
@@ -142,6 +142,9 @@ a {
   margin: 0 10px;
   padding: 5px 15px;
   text-align: center;
+  font-weight: 600;
+  letter-spacing: inherit;
+  text-transform: uppercase;
   background-color: #c2eff5;
   border: 1px solid #80DEEA;
   border-radius: 3px;
@@ -154,16 +157,68 @@ a {
   background-color: #80DEEA;
 }
 
-input {
+button[type="submit"] {
   padding: 5px 15px;
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: inherit;
+  text-transform: uppercase;
+  background-color: #c2eff5;
+  border: 1px solid #80DEEA;
+  border-radius: 3px;
+  cursor: pointer;
+  -webkit-transition: background-color 0.1s linear;
+          transition: background-color 0.1s linear;
+}
+
+button[type="submit"]:hover {
+  background-color: #80DEEA;
+}
+
+input[type="text"], textarea {
+  position: relative;
+  top: -5px;
+  padding: 5px;
   border-radius: 3px;
   border: 1px solid #bbbbbb;
 }
 
-input:focus {
+input[type="text"]:focus, textarea:focus {
   outline: none;
   border-color: #80DEEA;
   box-shadow: 0 0 1px 2px #c2eff5;
+}
+
+.actions input[type="text"] {
+  position: relative;
+  top: 1px;
+}
+
+input[type="file"]:focus {
+  outline: none;
+  border-color: #80DEEA;
+  box-shadow: 0 0 1px 2px #c2eff5;
+}
+
+textarea {
+  min-height: 100px;
+}
+
+form .row {
+  display: table;
+}
+
+form .row label, form .row input, form .row textarea {
+  display: table-cell;
+  vertical-align: top;
+}
+
+form .row label {
+  width: 150px;
+}
+
+form .row input[type="text"], form .row textarea {
+  width: 70%;
 }
 
 .side-nav {
@@ -217,6 +272,11 @@ input:focus {
   margin-right: 10px;
 }
 
+.home h2 {
+  text-align: center;
+  padding: 25px 150px;
+}
+
 .project-card {
   padding: 10px;
   margin-bottom: 10px;
@@ -256,6 +316,9 @@ input:focus {
   float: left;
   padding: 5px 15px;
   text-align: center;
+  font-weight: 600;
+  letter-spacing: inherit;
+  text-transform: uppercase;
   background-color: #c2eff5;
   border: 1px solid #80DEEA;
   border-radius: 3px;

@@ -2,4 +2,44 @@ extends ../layout_admin
 
 block content
   article
-    | Lorem ipsum dolor sit amet. Contact
+
+    form(action="/api/contact/update")
+
+      div.row
+        h4 GENERAL
+
+      span.divider
+
+      div.row
+        label(for="email") Email :
+        input(type="text", id="email", name="email")
+
+      div.row
+        label(for="phone") Phone :
+        input(type="text", id="phone", name="phone")
+
+      div.row
+        h4 EXTERNAL
+
+      span.divider
+
+      div.row
+        label(for="codepen") Codepen :
+        input(type="text", id="codepen", name="codepen")
+
+      div.row
+        label(for="github") GitHub :
+        input(type="text", id="github", name="github")
+
+      div.row
+        label(for="twitter") Twitter :
+        input(type="text", id="twitter", name="twitter")
+
+      div.row
+        label(for="blog") Blog :
+        input(type="text", id="blog", name="blog")
+
+      span.divider
+
+      div.row
+        button(type="submit") Save

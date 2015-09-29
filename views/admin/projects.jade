@@ -2,13 +2,12 @@ extends ../layout_admin
 
 block content
   article
-    div.row
+    div.row.actions
       input(type="text", placeholder="Quickfilter")
-      a(class="button", href='/admin/project/create') Add a project
+      a(class="button", href='/admin/projects/create') Add a project
 
     span.divider
 
-    //div.row
     div.half.project-card
       img(src="http://www.fillmurray.com/100/100")
       section.body
@@ -30,8 +29,8 @@ block content
     div.half.project-card
       img(src="http://www.fillmurray.com/100/100")
       section.body
-        p Project name 2
-        p Created Date 2
+        p Project name 3
+        p Created Date 3
         ul
           li: i.ti-pencil-alt
           li: i.ti-trash
