@@ -40,7 +40,7 @@ gulp.task('styles', function ()
 gulp.task('scripts', function ()
 {
 	return gulp.src([
-			src+'site/javascripts/main.js'
+			src+'site/javascripts/main.js',
 		])
 		.pipe(jshint('.jshintrc'))
 		.pipe(jshint.reporter('jshint-stylish'))
@@ -112,10 +112,12 @@ gulp.task('styles_admin', function ()
 gulp.task('scripts_admin', function ()
 {
 	return gulp.src([
-			src+'admin/javascripts/main.js'
+			src+'admin/javascripts/vendors/froala_editor.min.js',
+			src+'admin/javascripts/main.js',
+			src+'admin/javascripts/projects.js'
 		])
-		.pipe(jshint('.jshintrc'))
-		.pipe(jshint.reporter('jshint-stylish'))
+		//.pipe(jshint('.jshintrc'))
+		//.pipe(jshint.reporter('jshint-stylish'))
 		.pipe(concat('bundle.js'))
 		.pipe(gulp.dest(src+'admin/javascripts/bundle/'));
 });
@@ -151,7 +153,7 @@ gulp.task('watch_admin', function ()
 	gulp.watch(src+'admin/sass/**/*.sass', ['styles_admin']);
 	gulp.watch(src+'admin/javascripts/**/*.js', ['scripts_admin']);
 	gulp.watch(src+'admin/javascripts/bundle/bundle.js', ['browserify_admin']);
-	//gulp.watch(dest+'admin/javascripts/main.js', ['uglify']);
+	//gulp.watch(dest+'admin/javascripts/main.js', ['uglify_admin']);
 });
 
 gulp.task('admin', function ()

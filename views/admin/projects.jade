@@ -8,29 +8,30 @@ block content
 
     span.divider
 
-    div.half.project-card
-      img(src="http://www.fillmurray.com/100/100")
-      section.body
-        p Project name
-        p Created Date
-        ul
-          li: i.ti-pencil-alt
-          li: i.ti-trash
+    each project in projects
+      div.half.project-card
+        img(src="http://www.fillmurray.com/100/100")
+        section.body
+          p #{project.title}
+          p.date #{project.created_at}
+          ul
+            li: i.ti-pencil-alt
+            li: i.ti-trash
 
-    div.half.project-card
-      img(src="http://www.fillmurray.com/100/100")
-      section.body
-        p Project name 2
-        p Created Date 2
-        ul
-          li: i.ti-pencil-alt
-          li: i.ti-trash
-
-    div.half.project-card
-      img(src="http://www.fillmurray.com/100/100")
-      section.body
-        p Project name 3
-        p Created Date 3
-        ul
-          li: i.ti-pencil-alt
-          li: i.ti-trash
+    //div.half.project-card
+    //  img(src="http://www.fillmurray.com/100/100")
+    //  section.body
+    //    p Project name 2
+    //    p Created Date 2
+    //    ul
+    //      li: i.ti-pencil-alt
+    //      li: i.ti-trash
+    //
+    //div.half.project-card
+    //  img(src="http://www.fillmurray.com/100/100")
+    //  section.body
+    //    p Project name 3
+    //    p Created Date 3
+    //    ul
+    //      li: i.ti-pencil-alt
+    //      li: i.ti-trash

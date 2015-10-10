@@ -2,7 +2,7 @@ extends ../layout_admin
 
 block content
   article
-    form(action="/api/projects/create")
+    form(action="/api/projects/create" method="post")
 
       div.row
         h4 TEXT
@@ -10,8 +10,12 @@ block content
       span.divider
 
       div.row
-        label(for="name") Name :
-        input(type="text", id="name", name="name")
+        label(for="title") Title :
+        input(type="text", id="title", name="title")
+
+      div.row
+        label(for="desc") Description :
+        textarea(id="desc", name="desc")
 
       div.row
         label(for="link") Link :
@@ -22,12 +26,8 @@ block content
         input(type="text", id="categories", name="categories")
 
       div.row
-        label(for="desc") Description :
-        textarea(id="desc", name="desc")
-
-      div.row
         label(for="credits") Credits :
-        textarea(id="credits", name="credits")
+        input(type="text", id="credits", name="credits")
 
       div.row
         h4 IMAGES
@@ -42,7 +42,7 @@ block content
         label(for="cover") Cover :
         input(type="file", id="cover", name="cover")
 
-    span.divider
+      span.divider
 
-    div.row
-      button(type="submit") Create
+      div.row
+        button(type="submit") Create

@@ -67,44 +67,46 @@ app.use(function(err, req, res, next)
 // Connect to the database
 // -----------------------------------------------------------------
 
-//var connection;
-//
-//function handleDisconnect() {
-//  // Connect to heroku
-//
-//	app.get('mysql').connection = app.get('mysql').createConnection({
-//		host : app.config.get('database:host'),
-//		port : app.config.get('database:port'),
-//		user     : app.config.get('database:user'),
-//		password : app.config.get('database:pass'),
-//		database : app.config.get('database:name')
-//	});
-//
-//
-//	app.get('mysql').connection.connect(function(err)
-//	{
-//		if(err)
-//		{
-//			console.log('Error connecting to the database', err);
-//			setTimeout(handleDisconnect, 2000);
-//		}
-//		else
-//		{
-//			console.log('Successfully connected to the database');
-//		}
-//	});
-//
-//	app.get('mysql').connection.on('error', function(err) {
-//		console.log('ERROR CONNECTING TO THE DATABASE: ', err);
-//
-//		if(err.code === 'PROTOCOL_CONNECTION_LOST')
-//			handleDisconnect();
-//		else
-//			throw err;
-//	});
-//}
-//
-//handleDisconnect();
+var connection;
+
+function handleDisconnect() {
+  // Connect to heroku
+	app.get('mysql').connection = app.get('mysql').createConnection({
+		//host : app.config.get('database:host'),
+		//port : app.config.get('database:port'),
+        socketPath : app.config.get('database:socket'),
+		user     : app.config.get('database:user'),
+		password : app.config.get('database:pass'),
+		database : app.config.get('database:name')
+	});
+
+
+	app.get('mysql').connection.connect(function(err)
+	{
+		if(err)
+		{
+			console.log('Error connecting to the database', err);
+			//setTimeout(handleDisconnect, 2000);
+		}
+		else
+		{
+			console.log('Successfully connected to the database');
+		}
+	});
+
+	app.get('mysql').connection.on('error', function(err) {
+		console.log('ERROR CONNECTING TO THE DATABASE: ', err);
+
+		if(err.code === 'PROTOCOL_CONNECTION_LOST') {
+			//handleDisconnect();
+        }
+		else {
+			throw err;
+        }
+	});
+}
+
+handleDisconnect();
 
 
 
