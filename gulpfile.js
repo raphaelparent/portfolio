@@ -95,7 +95,7 @@ gulp.task('site', function ()
 //----------------------------------------------------------------------------------------------------
 gulp.task('styles_admin', function ()
 {
-	return gulp.src(src+'admin/sass/base.sass')
+	return gulp.src(src+'admin/sass/base.scss')
 		.pipe(sass({outputStyle: 'expanded'}))
 		.pipe(autoprefixer('last 2 version'))
 		.pipe(gulp.dest(dest+'admin/stylesheets'))
@@ -114,7 +114,6 @@ gulp.task('scripts_admin', function ()
 	return gulp.src([
 			src+'admin/javascripts/vendors/froala_editor.min.js',
 			src+'admin/javascripts/main.js',
-			src+'admin/javascripts/projects.js'
 		])
 		//.pipe(jshint('.jshintrc'))
 		//.pipe(jshint.reporter('jshint-stylish'))

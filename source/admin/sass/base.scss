@@ -1,25 +1,25 @@
 //----------------------------------------------------------------------------------------------------
 // VENDORS
 //----------------------------------------------------------------------------------------------------
-@import "vendors/reset"
-@import "vendors/froala_content"
-@import "vendors/froala_editor"
-@import "vendors/froala_style"
+@import "vendors/reset";
+@import "vendors/froala_content";
+@import "vendors/froala_editor";
+@import "vendors/froala_style";
 
 //----------------------------------------------------------------------------------------------------
 // VARIABLES, MIXINS, ETC.
 //----------------------------------------------------------------------------------------------------
-@import "variables"
+@import "variables";
 
 //----------------------------------------------------------------------------------------------------
 // YOUR AMAZING STYLE
 //----------------------------------------------------------------------------------------------------
-@import "grid"
-@import "general"
-@import "component"
+@import "grid";
+@import "general";
+@import "component";
 
-@import "partials/sidenav"
+@import "partials/sidenav";
 
-@import "pages/home"
-@import "pages/projects"
-@import "pages/contact"
+@import "pages/home";
+@import "pages/projects";
+@import "pages/contact";

@@ -1,0 +1,67 @@
+
+.project-card
+{
+	@include clear-float;
+	padding: 10px;
+	margin-bottom: 10px;
+	box-sizing: border-box;
+	border-radius: 3px;
+	transition: all 0.2s ease-in;
+	border: 1px solid $primary;
+
+	img, .body
+	{
+		float: left;
+	}
+
+	img
+	{
+		max-width: 100%;
+		border-radius: 50%;
+		border: 1px solid $primary;
+	}
+
+	.body
+	{
+		padding: 10px;
+	}
+
+	p
+	{
+		font-size: 14px;
+		font-weight: 600;
+		margin-bottom: 3px;
+
+		&.date
+		{
+			font-size: 8px;
+		}
+	}
+
+	ul
+	{
+		margin-top: 17px;
+	}
+
+	li
+	{
+		@include button;
+		float: left;
+
+		&:first-child
+		{
+			border-radius: 3px 0 0 3px;
+		}
+
+		&:last-child
+		{
+			border-radius: 0 3px 3px 0;
+			border-left: none;
+		}
+
+		a
+		{
+			font-size: 14px;
+		}
+	}
+}

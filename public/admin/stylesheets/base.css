@@ -2463,21 +2463,25 @@ section.block:first-child {
   min-height: 300px;
 }
 
-section.block header {
+section.block
+header {
   border-radius: 3px 3px 0 0;
   background-color: #e6e6e6;
   padding: 10px 20px;
 }
 
-section.block header i {
+section.block
+header
+i {
   margin-right: 10px;
 }
 
-section.block article {
+section.block
+article {
+  overflow: auto;
   background-color: #fff;
   border-radius: 0 0 3px 3px;
   padding: 15px 20px;
-  overflow: auto;
 }
 
 h1, h2, h3, h4, h5 {
@@ -2524,7 +2528,6 @@ em {
 }
 
 .button {
-  margin: 0 10px;
   padding: 5px 15px;
   text-align: center;
   font-weight: 600;
@@ -2536,6 +2539,7 @@ em {
   cursor: pointer;
   -webkit-transition: background-color 0.1s linear;
           transition: background-color 0.1s linear;
+  margin: 0 10px;
 }
 
 .button:hover {
@@ -2568,7 +2572,8 @@ input[type="text"], textarea {
   border: 1px solid #bbbbbb;
 }
 
-input[type="text"]:focus, textarea:focus {
+input[type="text"]:focus
+, textarea:focus {
   outline: none;
   border-color: #80DEEA;
   box-shadow: 0 0 1px 2px #c2eff5;
@@ -2589,24 +2594,35 @@ textarea {
   min-height: 100px;
 }
 
-form .row {
+form
+.row {
   display: table;
 }
 
-form .row label, form .row input, form .row textarea {
+form
+.row label, form
+.row input, form
+.row
+textarea {
   display: table-cell;
   vertical-align: top;
 }
 
-form .row label {
+form
+.row
+label {
   width: 150px;
 }
 
-form .row input[type="text"], form .row textarea {
+form
+.row input[type="text"], form
+.row
+textarea {
   width: 98%;
 }
 
-form .froala-editor {
+form
+.froala-editor {
   width: 95%;
   border-top-width: 1px;
   border-color: #bbbbbb;
@@ -2614,16 +2630,40 @@ form .froala-editor {
   border-top-right-radius: 3px;
 }
 
-form .froala-wrapper.f-basic {
+form
+.froala-wrapper.f-basic {
   border-color: #bbbbbb;
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
 }
 
-form .froala-wrapper.f-basic .froala-element {
+form
+.froala-wrapper.f-basic
+.froala-element {
   min-height: 150px;
   font-size: 12px;
   letter-spacing: 0;
+}
+
+form
+p {
+  padding: 10px 15px;
+  font-size: 11px;
+  border-radius: 3px;
+}
+
+form
+p.error {
+  border: 1px solid #B55351;
+  color: #B55351;
+  background-color: rgba(181, 83, 81, 0.25);
+}
+
+form
+p.success {
+  border: 1px solid #61A06F;
+  color: #61A06F;
+  background-color: rgba(97, 160, 111, 0.25);
 }
 
 .side-nav {
@@ -2634,31 +2674,39 @@ form .froala-wrapper.f-basic .froala-element {
   font-size: 14px;
 }
 
-.side-nav ul {
+.side-nav
+ul {
   margin-bottom: 10px;
 }
 
-.side-nav li {
+.side-nav
+li {
   border-bottom: 1px solid #767676;
 }
 
-.side-nav li:first-child a {
+.side-nav
+li:first-child a {
   border-radius: 3px 3px 0 0;
 }
 
-.side-nav li:last-child {
+.side-nav
+li:last-child {
   border-bottom: none;
 }
 
-.side-nav li:last-child a {
+.side-nav
+li:last-child
+a {
   border-radius: 0 0 3px 3px;
 }
 
-.side-nav li.alone a {
+.side-nav
+li.alone a {
   border-radius: 3px;
 }
 
-.side-nav a {
+.side-nav
+a {
   display: block;
   padding: 15px 10px;
   color: #767676;
@@ -2668,21 +2716,25 @@ form .froala-wrapper.f-basic .froala-element {
           transition: all 0.2s ease-in;
 }
 
-.side-nav a:hover {
+.side-nav
+a:hover {
   background-color: #28262c;
   color: #fafafa;
 }
 
-.side-nav i {
+.side-nav
+i {
   margin-right: 10px;
 }
 
-.home h2 {
+.home
+h2 {
   text-align: center;
   padding: 25px 150px;
 }
 
 .project-card {
+  overflow: auto;
   padding: 10px;
   margin-bottom: 10px;
   box-sizing: border-box;
@@ -2690,35 +2742,44 @@ form .froala-wrapper.f-basic .froala-element {
   -webkit-transition: all 0.2s ease-in;
           transition: all 0.2s ease-in;
   border: 1px solid #80DEEA;
-  overflow: auto;
 }
 
-.project-card img, .project-card .body {
+.project-card img, .project-card
+.body {
   float: left;
 }
 
-.project-card img {
+.project-card
+img {
   max-width: 100%;
   border-radius: 50%;
   border: 1px solid #80DEEA;
 }
 
-.project-card .body {
+.project-card
+.body {
   padding: 10px;
 }
 
-.project-card p {
+.project-card
+p {
   font-size: 14px;
   font-weight: 600;
   margin-bottom: 3px;
 }
 
-.project-card ul {
+.project-card
+p.date {
+  font-size: 8px;
+}
+
+.project-card
+ul {
   margin-top: 17px;
 }
 
-.project-card li {
-  float: left;
+.project-card
+li {
   padding: 5px 15px;
   text-align: center;
   font-weight: 600;
@@ -2730,17 +2791,27 @@ form .froala-wrapper.f-basic .froala-element {
   cursor: pointer;
   -webkit-transition: background-color 0.1s linear;
           transition: background-color 0.1s linear;
+  float: left;
 }
 
-.project-card li:hover {
+.project-card
+li:hover {
   background-color: #80DEEA;
 }
 
-.project-card li:first-child {
+.project-card
+li:first-child {
   border-radius: 3px 0 0 3px;
 }
 
-.project-card li:last-child {
+.project-card
+li:last-child {
   border-radius: 0 3px 3px 0;
   border-left: none;
+}
+
+.project-card
+li
+a {
+  font-size: 14px;
 }

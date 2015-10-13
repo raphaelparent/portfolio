@@ -1,29 +1,36 @@
 module.exports = function(app)
 {
-	app.get('/admin/projects', renderProjects);
-	app.get('/admin/projects/create', renderProjectsCreate);
-
 	var mysql = app.get('mysql');
+
+	app.get('/admin/projects', renderProjects);
+	app.get('/admin/projects/update/:id', renderProjectUpdate);
+	app.get('/admin/projects/create', renderProjectsCreate);
 
 	function renderProjects(req, res)
 	{
-		mysql.connection.query('SELECT * FROM `projects`',
-			function (err, projects) {
-				if (err) {
-					return console.log('Errors while getting scores ===>', err);
-				}
-				// Send the scores back
-				//res.send(rows);
-				res.render('admin/projects', {
-					'title': 'Projects',
-					'icon': 'ti-layout-media-overlay-alt-2',
-					'projects': projects
-				});
-			});
+		// Render the view with the projects
+		res.render('admin/projects', {
+			'title': 'Projects',
+			'icon': 'ti-layout-media-overlay-alt-2'
+		});
+
 	}
 
 	function renderProjectsCreate(req, res)
 	{
-		res.render('admin/project_form', {'title': 'ProjectEdit', 'icon': 'ti-layout-media-overlay-alt-2'});
+		res.render('admin/project_form', {
+			'title': 'ProjectCreate',
+			'action': 'Create',
+			'icon': 'ti-layout-media-overlay-alt-2'
+		});
+	}
+
+	function renderProjectUpdate(req, res)
+	{
+		res.render('admin/project_form', {
+			'title': 'ProjectEdit',
+			'action': 'Save',
+			'icon': 'ti-layout-media-overlay-alt-2'
+		});
 	}
 };

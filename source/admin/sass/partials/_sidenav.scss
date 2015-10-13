@@ -1,0 +1,62 @@
+//----------------------------------------------------------------------------------------------------
+// _sidenav.sass
+//----------------------------------------------------------------------------------------------------
+
+.side-nav
+{
+	position: fixed;
+	top: 15px;
+	width: 200px;
+	height: 100vh;
+	font-size: 14px;
+
+	ul
+	{
+		margin-bottom: 10px;
+	}
+	li
+	{
+		border-bottom: 1px solid #767676;
+
+		&:first-child a
+		{
+				border-radius: 3px 3px 0 0;
+		}
+
+		&:last-child
+		{
+			border-bottom: none;
+
+			a
+			{
+				border-radius:  0 0 3px 3px;
+			}
+		}
+
+		&.alone a
+		{
+			border-radius: 3px;
+		}
+	}
+
+	a
+	{
+		display: block;
+		padding: 15px 10px;
+		color: #767676;
+		background-color: #2d2b32;
+		text-decoration: none;
+		transition: all 0.2s ease-in;
+
+		&:hover
+		{
+			background-color: #28262c;
+			color: #fafafa;
+		}
+	}
+
+	i
+	{
+		margin-right: 10px;
+	}
+}

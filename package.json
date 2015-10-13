@@ -15,7 +15,10 @@
     "mysql": "2.8.0",
     "morgan": "~1.6.1",
     "nconf": "~0.6.9",
-    "serve-favicon": "~2.3.0"
+    "serve-favicon": "~2.3.0",
+    "sanitize-html": "1.11.0",
+    "vue": "0.12.16",
+    "vue-resource": "0.1.16"
   },
   "devDependencies": {
     "gulp": "^3.9.0",

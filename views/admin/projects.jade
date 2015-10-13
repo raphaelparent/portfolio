@@ -3,35 +3,16 @@ extends ../layout_admin
 block content
   article
     div.row.actions
-      input(type="text", placeholder="Quickfilter")
+      input(type="text", placeholder="Quickfilter" v-model="quickfilter")
       a(class="button", href='/admin/projects/create') Add a project
 
     span.divider
 
-    each project in projects
-      div.half.project-card
-        img(src="http://www.fillmurray.com/100/100")
-        section.body
-          p #{project.title}
-          p.date #{project.created_at}
-          ul
-            li: i.ti-pencil-alt
-            li: i.ti-trash
-
-    //div.half.project-card
-    //  img(src="http://www.fillmurray.com/100/100")
-    //  section.body
-    //    p Project name 2
-    //    p Created Date 2
-    //    ul
-    //      li: i.ti-pencil-alt
-    //      li: i.ti-trash
-    //
-    //div.half.project-card
-    //  img(src="http://www.fillmurray.com/100/100")
-    //  section.body
-    //    p Project name 3
-    //    p Created Date 3
-    //    ul
-    //      li: i.ti-pencil-alt
-    //      li: i.ti-trash
+    div.half.project-card(v-repeat="project in projects | filterBy quickfilter in 'title'")
+      img(src="http://www.fillmurray.com/100/100")
+      section.body
+        p {{project.title}}
+        p.date {{project.created_at}}
+        ul
+          li: a(href='/admin/projects/update/{{project.id}}'): i.ti-pencil-alt
+          li(v-on="click: destroyProject(project.id)"): i.ti-trash

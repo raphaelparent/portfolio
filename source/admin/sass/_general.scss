@@ -1,0 +1,94 @@
+//----------------------------------------------------------------------------------------------------
+// _general.sass
+//----------------------------------------------------------------------------------------------------
+
+body
+{
+	width: 1000px;
+	display: block;
+	margin: 0 auto;
+	color: $dark-text;
+	font-family: 'Open Sans', helvetica, arial, sans-serif;
+	letter-spacing: 1.2px;
+	font-size: 14px;
+	background-color: $bg-light;
+}
+
+.container
+{
+	padding-left: 215px;
+	padding-top: 15px;
+}
+
+section.block
+{
+	margin-bottom: 15px;
+
+	&:first-child
+	{
+		min-height: 300px;
+	}
+
+	header
+	{
+		border-radius: 3px 3px 0 0;
+		background-color: darken($bg-light, 3%);
+		padding: 10px 20px;
+
+		i
+		{
+			margin-right: 10px;
+		}
+	}
+
+	article
+	{
+		@include clear-float;
+		background-color: #fff;
+		border-radius: 0 0 3px 3px;
+		padding: 15px 20px;
+	}
+}
+
+h1, h2, h3, h4, h5
+{
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+h1
+{
+	font-size: 30px;
+}
+
+h2
+{
+	font-size: 24px;
+}
+
+h3
+{
+	font-size: 18px;
+}
+
+h4
+{
+	font-size: 14px;
+}
+
+a
+{
+	color: $dark-text;
+	text-decoration: none;
+	font-size: 11px;
+}
+
+strong
+{
+	font-weight: bold;
+}
+
+em
+{
+	font-style: italic;
+}

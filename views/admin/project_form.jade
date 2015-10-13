@@ -2,7 +2,8 @@ extends ../layout_admin
 
 block content
   article
-    form(action="/api/projects/create" method="post")
+
+    form
 
       div.row
         h4 TEXT
@@ -11,23 +12,23 @@ block content
 
       div.row
         label(for="title") Title :
-        input(type="text", id="title", name="title")
+        input(type="text", id="title", name="title", v-model="project.title")
 
       div.row
-        label(for="desc") Description :
-        textarea(id="desc", name="desc")
+        label(for="description") Description :
+        textarea(id="description", name="description" v-model="project.description")
 
       div.row
         label(for="link") Link :
-        input(type="text", id="link", name="link")
+        input(type="text", id="link", name="link", v-model="project.link")
 
       div.row
         label(for="categories") Categories :
-        input(type="text", id="categories", name="categories")
+        input(type="text", id="categories", name="categories", v-model="project.categories")
 
       div.row
         label(for="credits") Credits :
-        input(type="text", id="credits", name="credits")
+        input(type="text", id="credits", name="credits", v-model="project.credits")
 
       div.row
         h4 IMAGES
@@ -36,13 +37,18 @@ block content
 
       div.row
         label(for="thumbnail") Thumbnail :
-        input(type="file", id="thumbnail", name="thumbnail")
+        input(type="file", id="thumbnail", name="thumbnail", v-model="project.thumbnail")
 
       div.row
         label(for="cover") Cover :
-        input(type="file", id="cover", name="cover")
+        input(type="file", id="cover", name="cover", v-model="project.cover")
 
       span.divider
 
       div.row
-        button(type="submit") Create
+        button(type="submit", v-on="click: saveProject($event)") #{action}
+
+      div.row
+        p(v-if="status", class="{{status}}") {{message}}
+
+      // TODO : Show the error/success message with the proper styling.

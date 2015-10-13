@@ -1,0 +1,58 @@
+
+//-----------------------------------------------------
+// Variables
+//-----------------------------------------------------
+$primary: #80DEEA;
+$primary-light: lighten($primary, 15%);
+$bg-light: #eee;
+$dark-text: #333;
+
+$good: #61A06F;
+$bad: #B55351;
+
+//-----------------------------------------------------
+// Mixins
+//-----------------------------------------------------
+@mixin clear-float
+{
+	overflow: auto;
+}
+
+@mixin button
+{
+	padding: 5px 15px;
+	text-align: center;
+	font-weight: 600;
+	letter-spacing: inherit;
+	text-transform: uppercase;
+	background-color: $primary-light;
+	border: 1px solid $primary;
+	border-radius: 3px;
+	cursor: pointer;
+	transition: background-color 0.1s linear;
+
+	&:hover
+	{
+		background-color: $primary;
+	}
+}
+
+@mixin reset-outline
+{
+	&:focus
+	{
+		outline: none;
+		border-color: $primary;
+		box-shadow: 0 0 1px 2px $primary-light;
+	}
+}
+
+@mixin input
+{
+	@include reset-outline;
+	position: relative;
+	top: -5px;
+	padding: 5px;
+	border-radius: 3px;
+	border: 1px solid darken($bg-light, 20%);
+}
