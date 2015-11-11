@@ -13,18 +13,16 @@
 	margin: 0 10px;
 }
 
-button[type="submit"]
-{
-	@include button;
-}
-
-input[type="text"], textarea
+textarea
 {
 	@include input;
+	min-height: 100px;
 }
 
 input[type="text"]
 {
+	@include input;
+
 	.actions &
 	{
 		position: relative;
@@ -37,9 +35,14 @@ input[type="file"]
 	@include reset-outline;
 }
 
-textarea
+input[type="radio"]
 {
-	min-height: 100px;
+	margin: 0 5px;
+}
+
+button[type="submit"]
+{
+	@include button;
 }
 
 form
@@ -88,7 +91,7 @@ form
 		}
 	}
 
-	p
+	.row > p
 	{
 		padding: 10px 15px;
 		font-size: 11px;

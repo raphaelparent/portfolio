@@ -114,6 +114,11 @@ gulp.task('scripts_admin', function ()
 	return gulp.src([
 			src+'admin/javascripts/vendors/froala_editor.min.js',
 			src+'admin/javascripts/main.js',
+			src+'admin/javascripts/home.js',
+			src+'admin/javascripts/projects.js',
+			src+'admin/javascripts/project-create.js',
+			src+'admin/javascripts/project-edit.js',
+			src+'admin/javascripts/contact.js',
 		])
 		//.pipe(jshint('.jshintrc'))
 		//.pipe(jshint.reporter('jshint-stylish'))
@@ -149,7 +154,7 @@ gulp.task('uglify_admin', function()
 //----------------------------------------------------------------------------------------------------
 gulp.task('watch_admin', function ()
 {
-	gulp.watch(src+'admin/sass/**/*.sass', ['styles_admin']);
+	gulp.watch(src+'admin/sass/**/*.scss', ['styles_admin']);
 	gulp.watch(src+'admin/javascripts/**/*.js', ['scripts_admin']);
 	gulp.watch(src+'admin/javascripts/bundle/bundle.js', ['browserify_admin']);
 	//gulp.watch(dest+'admin/javascripts/main.js', ['uglify_admin']);

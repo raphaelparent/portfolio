@@ -10908,12 +10908,44 @@ var d=c.childNodes,e=null;if(!d.length||"BR"!=d[d.length-1].tagName)return!0;e=d
 //----------------------------------------------------------------------------------------------------
 'use strict';
 
+var Vue = require('vue');
+
+Vue.use(require('vue-resource'));
+
+Vue.config.silent = true;
+Vue.config.strict = true;
+
+
+
+'use strict';
+
 document.addEventListener('DOMContentLoaded', function() {
 
-	var Vue = require('vue');
-	Vue.use(require('vue-resource'));
-	Vue.config.silent = true;
-	Vue.config.strict = true;
+	if(document.body.classList.contains('home')) {
+		var home = new Vue({
+			el: 'body.home',
+			data: {
+				projects: {}
+			},
+			ready: function () {
+				this.fetchDrafts();
+			},
+			methods: {
+				fetchDrafts: function () {
+					this.$http.get('/api/projects/drafts').success(function (projects) {
+						console.log(projects);
+						this.projects = projects;
+					})
+				}
+			}
+		})
+	}
+});
+
+
+'use strict';
+
+document.addEventListener('DOMContentLoaded', function() {
 
 	if(document.body.classList.contains('projects')) {
 		var projects = new Vue({
@@ -10943,6 +10975,12 @@ document.addEventListener('DOMContentLoaded', function() {
 			}
 		})
 	}
+});
+
+
+'use strict';
+
+document.addEventListener('DOMContentLoaded', function() {
 
 	if(document.body.classList.contains('projectcreate')) {
 
@@ -10951,10 +10989,12 @@ document.addEventListener('DOMContentLoaded', function() {
 		});
 
 		var projectcreate = new Vue({
+
 			el: 'body.projectcreate',
 
 			data: {
 				project: {
+					published: '',
 					title: '',
 					description: '',
 					categories: '',
@@ -10967,70 +11007,144 @@ document.addEventListener('DOMContentLoaded', function() {
 				status: ''
 			},
 
-			ready: function() {
-
-			},
-
 			methods: {
+
 				saveProject: function(e) {
+
 					e.preventDefault();
+
+					console.log(this.project.thumbnail);
 
 					this.project.description = document.querySelector('.froala-element').innerHTML;
 
 					this.$http.post('/api/projects', {project: this.project}).success(function(project) {
+
 						console.log('Created project with success.');
 						this.message = 'Success, redirecting to project page.';
 						this.status = 'success';
+
 						window.setTimeout(function(){
-							window.location.href = '/admin/projects';
+							document.getElementById('fileForm').submit();
 						}, 3000)
+
 					}).error(function(err) {
+
 						console.log('Error while creating project :: ', err);
 						this.message = 'Error while creating project. Retry.';
 						this.status = 'error';
+
 					})
+
+				},
+
+				getFile: function(e) {
+
+					e.preventDefault();
+
+					var self = this;
+
+					//if(this.files.length > 0) {
+					//
+					//	this.files.forEach(function (file) {
+					//
+					//		if (file.name !== e.target.files[0].name) {
+					//			console.log('pushing!');
+					//			self.files.push(e.target.files[0]);
+					//		}
+					//		else {
+					//			console.log('File already in array!');
+					//		}
+					//
+					//	});
+					//
+					//}
+					//else {
+					//
+					//	console.log('first file');
+					//	this.files.push(e.target.files[0]);
+					//
+					//}
+
+					if (this.files.filter(function(file) { return file.name === e.target.files[0].name; }).length > 0) {
+						/* vendors contains the element we're looking for */
+						console.log('has file');
+					}
+					else {
+						console.log('doesnt has file');
+						this.files.push(e.target.files[0]);
+					}
+
+					console.log(this.files);
+
 				}
+
 			}
+
 		})
+
 	}
 
+});
+
+
+'use strict';
+
+document.addEventListener('DOMContentLoaded', function() {
+
 	if(document.body.classList.contains('projectedit')) {
+
 		var projectedit = new Vue({
+
 			el: 'body.projectedit',
 
 			data: {
+				test: 'hello',
 				project: {
 					id: '',
+					published: '',
 					title: '',
 					description: '',
 					categories: '',
-					credits: '',
-					thumbnail: '',
-					cover: ''
+					credits: ''
 				},
-
+				thumbnail: '',
+				cover: '',
 				message: '',
 				status: ''
 			},
 
 			ready: function() {
+
 				var href = window.location.href.split('/'),
 					id = href[href.length-1];
 
 				this.fetchProject(id);
+
 			},
 
 			methods: {
+
 				fetchProject: function(id) {
+
 					this.$http.get('/api/projects/' + id).success(function(project) {
+
 						document.getElementById('description').innerHTML = project.description;
+
+						console.log(project);
+
+						this.thumbnail = project.thumbnail;
+						this.cover = project.cover;
+
 						this.project = {
 							id: project.id,
+							published: project.published,
 							title: project.title,
 							description: project.description,
 							categories: project.categories,
 							link: project.link,
-							credits: project.credits
+							credits: project.credits,
+							thumbnail: project.thumbnail,
+							cover: project.cover
 						};
 
 						window.setTimeout(function() {
@@ -11038,26 +11152,108 @@ document.addEventListener('DOMContentLoaded', function() {
 								inlineMode: false
 							});
 						}, 10)
+
 					});
+
 				},
 
 				saveProject: function(e) {
+
 					e.preventDefault();
 
 					this.project.description = document.querySelector('.froala-element').innerHTML;
 
 					this.$http.put('/api/projects/' + this.project.id , { project: this.project }).success(function(project) {
+
 						console.log('Updated project with success.');
 						this.message = 'Success, project updated.';
 						this.status = 'success';
+
 					}).error(function(err) {
+
 						console.log('Error while updating project :: ', err);
 						this.message = 'Error while updating project. Retry.';
 						this.status = 'error';
+
 					})
+
 				}
+
 			}
+
 		})
+
+	}
+});
+
+
+'use strict';
+
+document.addEventListener('DOMContentLoaded', function() {
+
+	if(document.body.classList.contains('contact')) {
+
+		var contact = new Vue({
+
+			el: 'body.contact',
+
+			data: {
+				infos: {},
+				message: '',
+				status: '',
+				about: ''
+			},
+
+			ready: function() {
+				this.fetchInfos();
+			},
+
+			methods: {
+
+				fetchInfos: function() {
+
+					this.$http.get('/api/contact').success(function(infos) {
+
+						window.setTimeout(function() {
+							$('#about').editable({
+								inlineMode: false
+							});
+						}, 10);
+
+						this.infos = infos;
+
+					})
+
+				},
+
+				saveInfos: function(e) {
+
+					e.preventDefault();
+
+					this.$http.put('/api/contact/' + this.infos.id , { infos: this.infos }).success(function(infos) {
+
+						console.log('Updated infos with success.');
+						this.message = 'Success, infos updated.';
+						this.status = 'success';
+
+						window.setTimeout(function(){
+							this.status = '';
+						}.bind(this), 3000);
+
+					}).error(function(err) {
+
+						console.log('Error while updating infos :: ', err);
+						this.message = 'Error while updating infos. Retry.';
+						this.status = 'error';
+
+					})
+
+				}
+
+			}
+
+		})
+
 	}
 
 });

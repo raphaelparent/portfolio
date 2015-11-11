@@ -5,4 +5,17 @@ block content
 
     h2 Welcome to your portfolio content manager
 
+    h4 Drafts
+
     span.divider
+
+    p(v-if="projects.length === 0") No drafts for now.
+
+    div.half.project-card(v-repeat="project in projects")
+      img(src="http://www.fillmurray.com/100/100")
+      section.body
+        p {{project.title}}
+        p.date {{project.created_at}}
+        ul
+          li: a(href='/admin/projects/update/{{project.id}}'): i.ti-pencil
+          li(v-on="click: destroyProject(project.id)"): i.ti-trash

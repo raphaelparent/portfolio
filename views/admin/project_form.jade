@@ -11,6 +11,13 @@ block content
       span.divider
 
       div.row
+        label(for="published") Published?
+        input(type="radio", id="published_yes", name="published", value="yes", v-model="project.published", checked)
+        span Yes
+        input(type="radio", id="published_no", name="published", value="no", v-model="project.published")
+        span No
+
+      div.row
         label(for="title") Title :
         input(type="text", id="title", name="title", v-model="project.title")
 
@@ -35,13 +42,17 @@ block content
 
       span.divider
 
+    form(action="/api/upload", method="post", enctype="multipart/form-data", id="fileForm")
+
       div.row
         label(for="thumbnail") Thumbnail :
-        input(type="file", id="thumbnail", name="thumbnail", v-model="project.thumbnail")
+        input(type="file", id="thumbnail", name="pictures", v-model="project.thumbnail")
+        span File currently loaded: {{ thumbnail }}
 
       div.row
         label(for="cover") Cover :
-        input(type="file", id="cover", name="cover", v-model="project.cover")
+        input(type="file", id="cover", name="pictures", v-model="project.cover")
+        span File currently loaded: {{ cover }}
 
       span.divider
 
@@ -50,5 +61,3 @@ block content
 
       div.row
         p(v-if="status", class="{{status}}") {{message}}
-
-      // TODO : Show the error/success message with the proper styling.

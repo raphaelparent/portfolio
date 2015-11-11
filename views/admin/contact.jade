@@ -12,11 +12,15 @@ block content
 
       div.row
         label(for="email") Email :
-        input(type="text", id="email", name="email")
+        input(type="text", id="email", name="email", v-model="infos.email")
 
       div.row
         label(for="phone") Phone :
-        input(type="text", id="phone", name="phone")
+        input(type="text", id="phone", name="phone", v-model="infos.phone")
+
+      div.row
+        label(for="about") About :
+        textarea(id="about", name="about" v-model="infos.about")
 
       div.row
         h4 EXTERNAL
@@ -25,21 +29,28 @@ block content
 
       div.row
         label(for="codepen") Codepen :
-        input(type="text", id="codepen", name="codepen")
+        input(type="text", id="codepen", name="codepen", v-model="infos.codepen")
 
       div.row
         label(for="github") GitHub :
-        input(type="text", id="github", name="github")
+        input(type="text", id="github", name="github", v-model="infos.github")
 
       div.row
         label(for="twitter") Twitter :
-        input(type="text", id="twitter", name="twitter")
+        input(type="text", id="twitter", name="twitter", v-model="infos.twitter")
+
+      div.row
+        label(for="linkedin") Linked in :
+        input(type="text", id="linkedin", name="linkedin", v-model="infos.linkedin")
 
       div.row
         label(for="blog") Blog :
-        input(type="text", id="blog", name="blog")
+        input(type="text", id="blog", name="blog", v-model="infos.blog")
 
       span.divider
 
       div.row
-        button(type="submit") Save
+        button(type="submit", v-on="click: saveInfos($event)") Save
+
+      div.row
+        p(v-if="status", class="{{status}}") {{message}}

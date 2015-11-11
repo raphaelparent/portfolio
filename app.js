@@ -26,6 +26,7 @@ app.config = conf.argv().env().defaults({store:require(path.join(__dirname,'/con
 // App setup
 // -----------------------------------------------------------------
 app.set('views', path.join(__dirname, 'views'));
+app.set('root', __dirname);
 app.set('view engine', 'jade');
 app.set('port', process.env.PORT || 3000);
 app.set('mysql', mysql);

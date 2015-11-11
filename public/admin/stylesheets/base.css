@@ -2546,25 +2546,22 @@ em {
   background-color: #80DEEA;
 }
 
-button[type="submit"] {
-  padding: 5px 15px;
-  text-align: center;
-  font-weight: 600;
-  letter-spacing: inherit;
-  text-transform: uppercase;
-  background-color: #c2eff5;
-  border: 1px solid #80DEEA;
+textarea {
+  position: relative;
+  top: -5px;
+  padding: 5px;
   border-radius: 3px;
-  cursor: pointer;
-  -webkit-transition: background-color 0.1s linear;
-          transition: background-color 0.1s linear;
+  border: 1px solid #bbbbbb;
+  min-height: 100px;
 }
 
-button[type="submit"]:hover {
-  background-color: #80DEEA;
+textarea:focus {
+  outline: none;
+  border-color: #80DEEA;
+  box-shadow: 0 0 1px 2px #c2eff5;
 }
 
-input[type="text"], textarea {
+input[type="text"] {
   position: relative;
   top: -5px;
   padding: 5px;
@@ -2572,8 +2569,7 @@ input[type="text"], textarea {
   border: 1px solid #bbbbbb;
 }
 
-input[type="text"]:focus
-, textarea:focus {
+input[type="text"]:focus {
   outline: none;
   border-color: #80DEEA;
   box-shadow: 0 0 1px 2px #c2eff5;
@@ -2590,8 +2586,26 @@ input[type="file"]:focus {
   box-shadow: 0 0 1px 2px #c2eff5;
 }
 
-textarea {
-  min-height: 100px;
+input[type="radio"] {
+  margin: 0 5px;
+}
+
+button[type="submit"] {
+  padding: 5px 15px;
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: inherit;
+  text-transform: uppercase;
+  background-color: #c2eff5;
+  border: 1px solid #80DEEA;
+  border-radius: 3px;
+  cursor: pointer;
+  -webkit-transition: background-color 0.1s linear;
+          transition: background-color 0.1s linear;
+}
+
+button[type="submit"]:hover {
+  background-color: #80DEEA;
 }
 
 form
@@ -2646,21 +2660,21 @@ form
 }
 
 form
-p {
+.row > p {
   padding: 10px 15px;
   font-size: 11px;
   border-radius: 3px;
 }
 
 form
-p.error {
+.row > p.error {
   border: 1px solid #B55351;
   color: #B55351;
   background-color: rgba(181, 83, 81, 0.25);
 }
 
 form
-p.success {
+.row > p.success {
   border: 1px solid #61A06F;
   color: #61A06F;
   background-color: rgba(97, 160, 111, 0.25);
@@ -2735,6 +2749,7 @@ h2 {
 
 .project-card {
   overflow: auto;
+  position: relative;
   padding: 10px;
   margin-bottom: 10px;
   box-sizing: border-box;
@@ -2742,6 +2757,13 @@ h2 {
   -webkit-transition: all 0.2s ease-in;
           transition: all 0.2s ease-in;
   border: 1px solid #80DEEA;
+}
+
+.project-card
+i.ti-pencil-alt {
+  position: absolute;
+  right: 15px;
+  top: 15px;
 }
 
 .project-card img, .project-card

@@ -2,12 +2,20 @@
 .project-card
 {
 	@include clear-float;
+	position: relative;
 	padding: 10px;
 	margin-bottom: 10px;
 	box-sizing: border-box;
 	border-radius: 3px;
 	transition: all 0.2s ease-in;
 	border: 1px solid $primary;
+
+	i.ti-pencil-alt
+	{
+		position: absolute;
+		right: 15px;
+		top: 15px;
+	}
 
 	img, .body
 	{
