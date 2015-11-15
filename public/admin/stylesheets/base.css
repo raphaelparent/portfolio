@@ -2439,6 +2439,12 @@ h6.fr-tag {
   float: left;
 }
 
+.third {
+  width: 30%;
+  margin-right: 3%;
+  float: left;
+}
+
 body {
   width: 1000px;
   display: block;
@@ -2590,7 +2596,7 @@ input[type="radio"] {
   margin: 0 5px;
 }
 
-button[type="submit"] {
+form button {
   padding: 5px 15px;
   text-align: center;
   font-weight: 600;
@@ -2604,7 +2610,7 @@ button[type="submit"] {
           transition: background-color 0.1s linear;
 }
 
-button[type="submit"]:hover {
+form button:hover {
   background-color: #80DEEA;
 }
 

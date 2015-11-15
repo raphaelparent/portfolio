@@ -40,7 +40,7 @@ input[type="radio"]
 	margin: 0 5px;
 }
 
-button[type="submit"]
+form button
 {
 	@include button;
 }

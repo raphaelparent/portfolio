@@ -46,12 +46,16 @@ block content
 
       div.row
         label(for="thumbnail") Thumbnail :
-        input(type="file", id="thumbnail", name="pictures", v-model="project.thumbnail")
+        button(class="third", type="button", v-on="click: chooseFile('thumbnail')") Choose file
+        div(style="height: 0px;width:0px; overflow:hidden;")
+          input(type="file", id="thumbnail", name="pictures", v-on="change: saveFileName($event)", v-model="project.thumbnail")
         span File currently loaded: {{ thumbnail }}
 
       div.row
         label(for="cover") Cover :
-        input(type="file", id="cover", name="pictures", v-model="project.cover")
+        button(class="third", type="button" v-on="click: chooseFile('cover')") Choose file
+        div(style="height: 0px;width:0px; overflow:hidden;")
+          input(type="file", id="cover", name="pictures", v-on="change: saveFileName($event)", v-model="project.cover")
         span File currently loaded: {{ cover }}
 
       span.divider

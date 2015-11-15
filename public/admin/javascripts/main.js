@@ -11002,7 +11002,8 @@ document.addEventListener('DOMContentLoaded', function() {
 					thumbnail: '',
 					cover: ''
 				},
-
+				thumbnail: '',
+				cover: '',
 				message: '',
 				status: ''
 			},
@@ -11037,36 +11038,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
 				},
 
+				chooseFile: function(id) {
+
+					document.getElementById(id).click();
+
+				},
+
+				saveFileName: function(e) {
+
+					this[e.target.id] = e.target.files[0].name
+
+				},
+
 				getFile: function(e) {
 
 					e.preventDefault();
 
-					var self = this;
-
-					//if(this.files.length > 0) {
-					//
-					//	this.files.forEach(function (file) {
-					//
-					//		if (file.name !== e.target.files[0].name) {
-					//			console.log('pushing!');
-					//			self.files.push(e.target.files[0]);
-					//		}
-					//		else {
-					//			console.log('File already in array!');
-					//		}
-					//
-					//	});
-					//
-					//}
-					//else {
-					//
-					//	console.log('first file');
-					//	this.files.push(e.target.files[0]);
-					//
-					//}
-
 					if (this.files.filter(function(file) { return file.name === e.target.files[0].name; }).length > 0) {
-						/* vendors contains the element we're looking for */
 						console.log('has file');
 					}
 					else {
@@ -11105,7 +11093,9 @@ document.addEventListener('DOMContentLoaded', function() {
 					title: '',
 					description: '',
 					categories: '',
-					credits: ''
+					credits: '',
+					thumbnail: '',
+					cover: ''
 				},
 				thumbnail: '',
 				cover: '',
@@ -11130,8 +11120,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 						document.getElementById('description').innerHTML = project.description;
 
-						console.log(project);
-
 						this.thumbnail = project.thumbnail;
 						this.cover = project.cover;
 
@@ -11142,9 +11130,7 @@ document.addEventListener('DOMContentLoaded', function() {
 							description: project.description,
 							categories: project.categories,
 							link: project.link,
-							credits: project.credits,
-							thumbnail: project.thumbnail,
-							cover: project.cover
+							credits: project.credits
 						};
 
 						window.setTimeout(function() {
@@ -11169,6 +11155,10 @@ document.addEventListener('DOMContentLoaded', function() {
 						this.message = 'Success, project updated.';
 						this.status = 'success';
 
+						window.setTimeout(function(){
+							document.getElementById('fileForm').submit();
+						}, 3000)
+
 					}).error(function(err) {
 
 						console.log('Error while updating project :: ', err);
@@ -11177,6 +11167,34 @@ document.addEventListener('DOMContentLoaded', function() {
 
 					})
 
+				},
+
+				chooseFile: function(id) {
+
+					document.getElementById(id).click();
+
+				},
+
+				saveFileName: function(e) {
+
+					this[e.target.id] = e.target.files[0].name
+
+				},
+
+				getFile: function(e) {
+
+					e.preventDefault();
+
+					if (this.files.filter(function(file) { return file.name === e.target.files[0].name; }).length > 0) {
+						console.log('has file');
+					}
+					else {
+						console.log('doesnt has file');
+						this.files.push(e.target.files[0]);
+					}
+
+					console.log(this.files);
+
 				}
 
 			}
@@ -11184,6 +11202,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		})
 
 	}
+
 });
 
 

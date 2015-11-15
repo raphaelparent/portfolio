@@ -3,7 +3,7 @@ module.exports = function(app)
 	var mysql = app.get('mysql');
 
 	app.get('/admin/projects', renderProjects);
-	app.get('/admin/projects/update/:id', renderProjectUpdate);
+	app.get('/admin/projects/edit/:id', renderProjectUpdate);
 	app.get('/admin/projects/create', renderProjectsCreate);
 
 	function renderProjects(req, res)
