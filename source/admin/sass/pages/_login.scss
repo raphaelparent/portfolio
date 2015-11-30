@@ -1,0 +1,23 @@
+.login
+{
+	h2
+	{
+		text-align: center;
+		font-size: 36px;
+		margin-bottom: 25px;
+		line-height: 40px;
+	}
+
+	.container
+	{
+		display: block;
+		width: 400px;
+		padding: 0;
+		margin: 100px auto;
+	}
+
+	button[type="submit"]
+	{
+		width: 100%;
+	}
+}
