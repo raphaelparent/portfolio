@@ -1,4 +1,35 @@
-extends ../layout_admin
+doctype html
+html
+  head
+    title raphaelp | #{title.toLowerCase()}
+    //<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800,700italic,600italic,400italic')
+    link(rel='stylesheet', href='/admin/stylesheets/themify-icons.css')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css')
+    link(rel='stylesheet', href='/admin/stylesheets/base.css')
 
-block content
-  h1 Login
+  body(class="#{ title.toLowerCase() }")
+
+    div.container
+      section.block
+        h2 Raphaël Parent portfolio CMS
+
+        header
+          h3
+            i(class="#{ icon }")
+            | #{ title }
+
+        article
+          form(action='/api/login', method='post')
+
+            div.row
+              label(for="username") Username :
+              input(id="username", name="username", type='text')
+
+            div.row
+              label(for="password") Password :
+              input(id="password", name="password", type='password')
+
+            div.row
+               button(type="submit") Login
+

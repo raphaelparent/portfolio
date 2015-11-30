@@ -11048,22 +11048,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 					this[e.target.id] = e.target.files[0].name
 
-				},
-
-				getFile: function(e) {
-
-					e.preventDefault();
-
-					if (this.files.filter(function(file) { return file.name === e.target.files[0].name; }).length > 0) {
-						console.log('has file');
-					}
-					else {
-						console.log('doesnt has file');
-						this.files.push(e.target.files[0]);
-					}
-
-					console.log(this.files);
-
 				}
 
 			}
@@ -11178,22 +11162,6 @@ document.addEventListener('DOMContentLoaded', function() {
 				saveFileName: function(e) {
 
 					this[e.target.id] = e.target.files[0].name
-
-				},
-
-				getFile: function(e) {
-
-					e.preventDefault();
-
-					if (this.files.filter(function(file) { return file.name === e.target.files[0].name; }).length > 0) {
-						console.log('has file');
-					}
-					else {
-						console.log('doesnt has file');
-						this.files.push(e.target.files[0]);
-					}
-
-					console.log(this.files);
 
 				}
 

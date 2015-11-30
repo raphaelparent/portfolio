@@ -11,7 +11,10 @@ var express 	 = require('express'),
     bodyParser   = require('body-parser'),
     http 		 = require('http'),
     jade		 = require('jade'),
-    mysql		 = require('mysql');
+    mysql		 = require('mysql'),
+    passport     = require('passport'),
+    session      = require('express-session');
+
 
 
 var app = express();
@@ -20,7 +23,6 @@ var app = express();
 // Configuration
 // -----------------------------------------------------------------
 app.config = conf.argv().env().defaults({store:require(path.join(__dirname,'/config'))});
-
 
 // -----------------------------------------------------------------
 // App setup
@@ -37,6 +39,15 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+app.use(session({
+    secret: 'thisismyportofliosogetout',
+    resave: true,
+    saveUninitialized: false
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 // -----------------------------------------------------------------
 // Error handlers
@@ -115,7 +126,8 @@ handleDisconnect();
 // Routing
 // -----------------------------------------------------------------
 app.use(express.static(path.join(__dirname, 'public')));
-require(path.join(__dirname, '/routes/index'))(app);
+require(path.join(__dirname, '/routes/index'))(app, passport);
+require(path.join(__dirname, '/routes/admin/passport'))(app, passport);
 
 // -----------------------------------------------------------------
 // Create the server

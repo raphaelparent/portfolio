@@ -19,7 +19,7 @@ textarea
 	min-height: 100px;
 }
 
-input[type="text"]
+input[type="text"], input[type="password"]
 {
 	@include input;
 
@@ -62,7 +62,9 @@ form
 			width: 150px;
 		}
 
-		input[type="text"], textarea
+		input[type="text"],
+		input[type="password"],
+		textarea
 		{
 			width: 98%;
 		}

@@ -1,6 +1,8 @@
-module.exports = function(app)
+module.exports = function(app, passport)
 {
-	app.get('/admin/contact', renderContact);
+	var login = require('../api/login-controller')(app, passport);
+
+	app.get('/admin/contact', login.isLoggedIn, renderContact);
 
 	function renderContact(req, res)
 	{

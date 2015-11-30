@@ -2567,7 +2567,7 @@ textarea:focus {
   box-shadow: 0 0 1px 2px #c2eff5;
 }
 
-input[type="text"] {
+input[type="text"], input[type="password"] {
   position: relative;
   top: -5px;
   padding: 5px;
@@ -2575,13 +2575,15 @@ input[type="text"] {
   border: 1px solid #bbbbbb;
 }
 
-input[type="text"]:focus {
+input[type="text"]:focus
+, input[type="password"]:focus {
   outline: none;
   border-color: #80DEEA;
   box-shadow: 0 0 1px 2px #c2eff5;
 }
 
-.actions input[type="text"] {
+.actions input[type="text"]
+, .actions input[type="password"] {
   position: relative;
   top: 1px;
 }
@@ -2635,7 +2637,10 @@ label {
 }
 
 form
-.row input[type="text"], form
+.row input[type="text"],
+form
+.row input[type="password"],
+form
 .row
 textarea {
   width: 98%;
@@ -2745,6 +2750,27 @@ a:hover {
 .side-nav
 i {
   margin-right: 10px;
+}
+
+.login
+h2 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 25px;
+  line-height: 40px;
+}
+
+.login
+.container {
+  display: block;
+  width: 400px;
+  padding: 0;
+  margin: 100px auto;
+}
+
+.login
+button[type="submit"] {
+  width: 100%;
 }
 
 .home

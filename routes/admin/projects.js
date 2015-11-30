@@ -1,14 +1,15 @@
-module.exports = function(app)
+module.exports = function(app, passport)
 {
 	var mysql = app.get('mysql');
 
-	app.get('/admin/projects', renderProjects);
-	app.get('/admin/projects/edit/:id', renderProjectUpdate);
-	app.get('/admin/projects/create', renderProjectsCreate);
+	var login = require('../api/login-controller')(app, passport);
+
+	app.get('/admin/projects', login.isLoggedIn, renderProjects);
+	app.get('/admin/projects/edit/:id', login.isLoggedIn, renderProjectUpdate);
+	app.get('/admin/projects/create', login.isLoggedIn, renderProjectsCreate);
 
 	function renderProjects(req, res)
 	{
-		// Render the view with the projects
 		res.render('admin/projects', {
 			'title': 'Projects',
 			'icon': 'ti-layout-media-overlay-alt-2'

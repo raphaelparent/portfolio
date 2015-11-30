@@ -1,6 +1,6 @@
-module.exports = function(app)
+module.exports = function(app, passport)
 {
 	require('./api/index')(app);
-	require('./admin/index')(app);
+	require('./admin/index')(app, passport);
 };
 
