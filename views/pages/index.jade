@@ -1,4 +1,25 @@
 extends ../layout
 
 block content
-  h1 Index
+
+  div.container
+    header
+
+    div.col.left
+      section.one
+        h2 About me
+        p!= info.about
+
+      section.three
+        h2 Projects
+        each project in projects
+          p!= project.title
+          //img(src='/site/images/uploaded/'+project.thumbnail)
+
+    div.col.right
+      section.two
+        h2 Latest project
+        p!= latest.title
+
+    footer
+      p Footer full width

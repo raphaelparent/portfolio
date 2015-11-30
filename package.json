@@ -23,7 +23,8 @@
     "sanitize-html": "1.11.0",
     "serve-favicon": "~2.3.0",
     "vue": "0.12.16",
-    "vue-resource": "0.1.16"
+    "vue-resource": "0.1.16",
+    "async": "1.5.0"
   },
   "devDependencies": {
     "gulp": "^3.9.0",

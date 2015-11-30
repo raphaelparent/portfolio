@@ -23,7 +23,7 @@ var dest = './public/';
 //----------------------------------------------------------------------------------------------------
 gulp.task('styles', function ()
 {
-	return gulp.src(src+'site/sass/base.sass')
+	return gulp.src(src+'site/sass/main.scss')
 		.pipe(sass())
 		.pipe(autoprefixer('last 2 version'))
 		.pipe(gulp.dest(dest+'site/stylesheets'))
@@ -41,6 +41,7 @@ gulp.task('scripts', function ()
 {
 	return gulp.src([
 			src+'site/javascripts/main.js',
+			src+'site/javascripts/layout.js',
 		])
 		.pipe(jshint('.jshintrc'))
 		.pipe(jshint.reporter('jshint-stylish'))
@@ -76,7 +77,7 @@ gulp.task('uglify', function()
 //----------------------------------------------------------------------------------------------------
 gulp.task('watch', function ()
 {
-	gulp.watch(src+'site/sass/**/*.sass', ['styles']);
+	gulp.watch(src+'site/sass/**/*.scss', ['styles']);
 	gulp.watch(src+'site/javascripts/**/*.js', ['scripts']);
 	gulp.watch(src+'site/javascripts/bundle/bundle.js', ['browserify']);
 	//gulp.watch(dest+'site/javascripts/main.js', ['uglify']);
