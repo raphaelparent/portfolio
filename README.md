@@ -13,11 +13,11 @@ Currently under construction.
 
 ## Things to do
 
- - Build the html and css for the admin
+ - ~~Build the html and css for the admin~~
    - ~~All projects~~
    - ~~Add and edit a project~~
    - ~~Manage contact information~~
- - Build the API
+ - ~~Build the API~~
    - ~~Add a project~~
    - ~~Get projects~~
    - ~~Get single project~~
