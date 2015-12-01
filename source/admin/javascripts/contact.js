@@ -42,6 +42,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 					e.preventDefault();
 
+					this.infos.about = document.querySelector('.froala-element').innerHTML;
+
 					this.$http.put('/api/contact/' + this.infos.id , { infos: this.infos }).success(function(infos) {
 
 						console.log('Updated infos with success.');

@@ -88,8 +88,6 @@ module.exports = function(app)
 
 	function createProject(req, res) {
 
-		console.log(req.files);
-
 		mysql.connection.query('INSERT INTO `projects` SET ?', {
 
 			published: req.body.project.published,

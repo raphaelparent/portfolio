@@ -1,3 +1,51 @@
+@font-face {
+  font-family: SourceSans;
+  src: url("./fonts/SourceSansPro-Light.ttf");
+  font-weight: 300;
+  font-style: normal; }
+
+@font-face {
+  font-family: SourceSans;
+  src: url("./fonts/SourceSansPro-Regular.ttf");
+  font-weight: 400;
+  font-style: normal; }
+
+@font-face {
+  font-family: SourceSans;
+  src: url("./fonts/SourceSansPro-Semibold.ttf");
+  font-weight: 500;
+  font-style: normal; }
+
+@font-face {
+  font-family: SourceSans;
+  src: url("./fonts/SourceSansPro-Bold.ttf");
+  font-weight: 700;
+  font-style: normal; }
+
+@font-face {
+  font-family: SourceCode;
+  src: url("./fonts/SourceCodePro-ExtraLight.ttf");
+  font-weight: 100;
+  font-style: normal; }
+
+@font-face {
+  font-family: SourceCode;
+  src: url("./fonts/SourceCodePro-Light.ttf");
+  font-weight: 300;
+  font-style: normal; }
+
+@font-face {
+  font-family: SourceCode;
+  src: url("./fonts/SourceCodePro-Medium.ttf");
+  font-weight: 500;
+  font-style: normal; }
+
+@font-face {
+  font-family: SourceCode;
+  src: url("./fonts/SourceCodePro-Semibold.ttf");
+  font-weight: 600;
+  font-style: normal; }
+
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain) */
@@ -44,6 +92,21 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+h1, h2, h3 {
+  font-family: SourceCode, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 500; }
+
+p {
+  margin: 15px 0;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 1px;
+  font-family: SourceSans, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300; }
+
+strong {
+  font-weight: 400; }
+
 body {
   background-color: red; }
 
@@ -80,7 +143,7 @@ section {
   box-sizing: border-box;
   padding: 30px;
   background-color: #fafafa;
-  border: 1px solid #333; }
+  border: 0.5px solid #e0e0e0; }
 
 footer {
   clear: both;

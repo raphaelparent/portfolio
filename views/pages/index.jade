@@ -14,12 +14,16 @@ block content
         h2 Projects
         each project in projects
           p!= project.title
+          p!= project.description
+          a(href='/project/'+project.id) Take a look!
           //img(src='/site/images/uploaded/'+project.thumbnail)
 
     div.col.right
       section.two
         h2 Latest project
         p!= latest.title
+        p!= latest.description
+        a(href='/project/'+latest.id) Take a look!
 
     footer
       p Footer full width

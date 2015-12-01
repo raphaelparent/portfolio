@@ -39,7 +39,7 @@ module.exports = function(app)
 					}
 
 					// Sanitize the html to prevent injection.
-					project[0].description = sanitizeHtml(project.description, {
+					project[0].description = sanitizeHtml(project[0].description, {
 						allowedTags: ['b', 'i', 'em', 'strong', 'p']
 					});
 					
@@ -77,6 +77,7 @@ module.exports = function(app)
 
 			// Once all of the above is done
 		}, function(err, results) {
+			console.log(results.latest);
 			res.render('pages/index', {
 				title: 'Home',
 				info: results.info,

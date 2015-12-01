@@ -12,9 +12,7 @@ module.exports = function(app) {
 				res.sendStatus(500)
 			}
 
-			info[0].about = sanitizeHtml(info[0].about, {
-				allowedTags: [ 'b', 'i', 'em', 'strong', 'p']
-			});
+			info[0].about = sanitizeHtml(info[0].about);
 
 			res.send(info[0])
 
@@ -23,10 +21,12 @@ module.exports = function(app) {
 
 	function updateInfo(req, res) {
 
+		console.log(req.body.about);
+
 		mysql.connection.query('UPDATE `contact` SET ? WHERE `id` = ' + req.params.id, {
 			phone: req.body.infos.phone,
 			email: req.body.infos.email,
-			about: req.body.about,
+			about: req.body.infos.about,
 			codepen: req.body.infos.codepen,
 			github: req.body.infos.github,
 			twitter: req.body.infos.twitter,
