@@ -5,7 +5,7 @@ Currently under construction.
 ## Things I use
 
  - Gulp
- - Nodejs 4.0.0
+ - Nodejs 4.2.2
  - Mysql
  - SASS
  - Browserify
