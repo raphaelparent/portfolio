@@ -15,16 +15,21 @@ Currently under construction.
 
  - Build the html and css for the admin
    - ~~All projects~~
-   - Add and edit a project
+   - ~~Add and edit a project~~
    - ~~Manage contact information~~
  - Build the API
    - ~~Add a project~~
    - ~~Get projects~~
-   - Get single project
+   - ~~Get single project~~
    - ~~Update project~~
    - ~~Delete project~~
    - ~~Edit contact information~~
  - Build the front-end
-   - Home page with all projects
+   - Home page
+     - Header
+     - About
+     - Latest project
+     - All project
+     - Photo slider
+     - Contact form
    - Single project page
-   - Contact page 
