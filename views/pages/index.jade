@@ -4,8 +4,8 @@ block content
 
   div.container
     header
-      a(href='#contact') Contact me
-      a(href='#projects') See project
+      a.button(href='#contact') Contact me
+      a.button(href='#projects') See project
 
     div.col.left
       section.card
@@ -34,25 +34,34 @@ block content
             a(href='/project/'+latest.id) Take a look!
 
     section.slider
+      div.slide(style={'background-image': 'url(http://www.fillmurray.com/1600/900)'})
 
     section#contact.contact
-      article.form
-        form
-          label(for="email") Email :
-          input(type="text", id="email", name="email", placeholder="example@yourdomain.com")
-          label(for="subject") Subject :
-          input(type="text", id="subject", name="subject", placeholder="Super duper project")
-          label(for="message") Message :
-          textarea(id="message", name="message", placeholder="Hey mate I thought of you for my super duper project!")
+      h3 Get in touch
+      article.email-form
+        h4 Send me an email
+        form.form
+          div.form__group
+            label(for="email") Email
+            input(type="text", id="email", name="email", placeholder="example@yourdomain.com")
+          div.form__group
+            label(for="subject") Subject
+            input(type="text", id="subject", name="subject", placeholder="Super duper project")
+          div.form__group
+            label(for="message") Message
+            textarea(rows="5", id="message", name="message", placeholder="Hey mate I thought you could help me get my project done!")
+          button.form__button(type='submit') Send!
       article.media
         div.media__personnal
+          h4 Contact me directly
           p
             i.ti-email
             a(href='mailto:' + info.email) #{info.email}
           p
             i.ti-mobile
-            | #{info.phone}
+            a(href='tel:' + info.phone) #{info.phone}
         div.media__external
+          h4 See me online
           a(href=info.github, target='_blank')
             i.ti-github
           a(href=info.twitter, target='_blank')

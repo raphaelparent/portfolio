@@ -8,15 +8,18 @@
 
 	function resizeSections() {
 		var sections = document.querySelectorAll('.card'),
+			slider = document.querySelector('.slider'),
 			leftCol = document.querySelector('.col.left'),
-			header = document.querySelector('header'),
-			divided = document.querySelector('.divided'),
-			divisions = document.querySelectorAll('.division');
+			header = document.querySelector('header');
 
-		if(sections[0].clientWidth / 2 < 350)
+		if(sections[0].clientWidth / 2 < 350) {
 			leftCol.style.marginTop = '-' + sections[0].clientWidth / 2 + 'px';
-		else
+			slider.style.marginTop = '-' + sections[0].clientWidth / 2 + 'px';
+		}
+		else {
 			leftCol.style.marginTop = '-350px';
+			slider.style.marginTop = '-350px';
+		}
 
 		if(window.innerWidth < 720)
 			leftCol.style.marginTop = 0;
@@ -25,12 +28,11 @@
 			sections[i].style.height = sections[i].clientWidth + 'px';
 		}
 
-		divided.style.height = sections[0].clientWidth / 3 + 'px';
-		header.style.height = sections[0].style.height;
+		console.log('foo');
 
-		for(var ii = 0, dlength = divisions.length; i < dlength; i++){
-			divisions[ii].style.width = divided.clientWidth / 3 + 'px';
-		}
+		header.style.height = sections[0].style.height;
+		slider.style.height = sections[0].style.height;
+
 	}
 
 	resizeSections();

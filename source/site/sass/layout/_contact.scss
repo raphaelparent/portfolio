@@ -1,3 +1,52 @@
 .contact {
+	padding: 40px 0;
 	clear: both;
+
+	a {
+		text-decoration: none;
+	}
+
+	form {
+		padding: 0 10%;
+		margin: 30px 0;
+	}
+
+}
+
+.email-form, .media {
+	display: inline-block;
+	width: 50%;
+	padding: 30px 60px;
+	vertical-align: top;
+	box-sizing: border-box;
+}
+
+
+
+.media__personnal {
+
+	margin-bottom: 35px;
+
+	a {
+		vertical-align: 4px;
+		font-size: 16px;
+		margin-left: 10px;
+	}
+
+	p {
+		padding-left: 10%;
+		margin: 30px 0;
+	}
+
+}
+
+.media__external {
+
+	a {
+		display: inline-block;
+		margin: 30px 0;
+		width: 25%;
+		text-align: center;
+	}
+
 }
