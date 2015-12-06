@@ -18,13 +18,16 @@
 	});
 
 	function resizeSections() {
-		var sections = document.querySelectorAll('section'),
+		var sections = document.querySelectorAll('.card'),
 			leftCol = document.querySelector('.col.left'),
 			header = document.querySelector('header'),
 			divided = document.querySelector('.divided'),
 			divisions = document.querySelectorAll('.division');
 
-		leftCol.style.marginTop = '-' + sections[0].clientWidth / 2 + 'px';
+		if(sections[0].clientWidth / 2 < 350)
+			leftCol.style.marginTop = '-' + sections[0].clientWidth / 2 + 'px';
+		else
+			leftCol.style.marginTop = '-350px';
 
 		if(window.innerWidth < 720)
 			leftCol.style.marginTop = 0;

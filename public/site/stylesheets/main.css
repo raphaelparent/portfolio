@@ -92,12 +92,20 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+h1 {
+  font-size: 48px; }
+
+h2 {
+  font-size: 36px; }
+
 h1, h2, h3 {
+  color: #333;
   font-family: SourceCode, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 500; }
 
-p {
+p, a {
   margin: 15px 0;
+  color: #333;
   font-size: 18px;
   line-height: 24px;
   letter-spacing: 1px;
@@ -107,14 +115,21 @@ p {
 strong {
   font-weight: 400; }
 
-body {
-  background-color: red; }
+footer {
+  clear: both;
+  padding: 50px 0;
+  text-align: center;
+  background-color: #ffaaaa; }
 
 header {
   position: relative;
   width: 100%;
   min-height: 631px;
-  background-color: #333; }
+  overflow: hidden;
+  background-color: #333;
+  background-image: url("../images/header.png");
+  background-size: cover;
+  background-position: center center; }
   header
 h1 {
     position: absolute;
@@ -123,9 +138,20 @@ h1 {
     width: 40%;
     min-width: 200px;
     font-size: 60px; }
+  header > div {
+    position: absolute;
+    top: 315px;
+    left: 25%; }
+  header div {
+    width: 100%;
+    border-top: 2px solid rgba(30, 30, 30, 0.34);
+    display: block;
+    -webkit-transform: rotate(185deg) scale(1) translate3d(0em, 2em, 0);
+            transform: rotate(185deg) scale(1) translate3d(0em, 2em, 0); }
 
-h2 {
-  font-size: 36px; }
+@media screen and (max-width: 720px) {
+  header {
+    min-height: 300px; } }
 
 .col {
   display: block;
@@ -136,23 +162,46 @@ h2 {
   margin: 0;
   border: none; }
 
-section {
+.card {
   display: table;
   width: 100%;
   position: relative;
   box-sizing: border-box;
-  padding: 30px;
+  padding: 30px 0;
   background-color: #fafafa;
-  border: 0.5px solid #e0e0e0; }
+  border: 0.5px solid #e0e0e0;
+  max-height: 700px; }
 
-footer {
-  clear: both;
-  padding: 50px 0;
-  text-align: center;
-  background-color: #ffaaaa; }
+.card__title,
+.card__content {
+  max-width: 700px;
+  padding: 0 30px;
+  display: block;
+  margin: 15px auto; }
 
-.five {
-  background-color: #afafaf; }
+.card__content--table {
+  display: table;
+  height: 90%; }
+  .card__content--table
+div {
+    display: table-cell;
+    vertical-align: middle; }
+  .card__content--table
+p {
+    max-width: 500px; }
+
+.card__image {
+  max-width: 500px;
+  width: 90%; }
+
+.card__project {
+  margin-top: 30px;
+  width: 50%;
+  float: left; }
+  .card__project
+img {
+    width: 90%;
+    max-height: 100px; }
 
 .divided {
   padding: 0; }
@@ -169,3 +218,17 @@ p {
       display: table-cell;
       vertical-align: middle;
       text-align: center; }
+
+@media screen and (max-width: 720px) {
+  .col {
+    width: 100%; } }
+
+@media screen and (max-width: 500px) {
+  .card__project {
+    width: 100%; } }
+
+.slider {
+  clear: both; }
+
+.contact {
+  clear: both; }

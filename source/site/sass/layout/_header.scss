@@ -1,0 +1,41 @@
+header
+{
+	position: relative;
+	width: 100%;
+	min-height: 631px;
+	overflow: hidden;
+	background-color: #333;
+	background-image: url('../images/header.png');
+	background-size: cover;
+	background-position: center center;
+
+	h1
+	{
+		position: absolute;
+		right: 5%;
+		top: 200px;
+		width: 40%;
+		min-width: 200px;
+		font-size: 60px;
+	}
+
+	& > div{
+		position: absolute;
+		top: 315px;
+		left: 25%;
+	}
+
+	div {
+		width: 100%;
+		border-top:2px solid rgba(30, 30, 30, 0.34);
+		display: block;
+		transform: rotate(185deg) scale(1) translate3d(0em,2em,0);
+	}
+}
+
+@media screen and (max-width: 720px) {
+	header
+	{
+		min-height: 300px;
+	}
+}

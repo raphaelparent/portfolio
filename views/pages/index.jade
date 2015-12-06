@@ -4,26 +4,65 @@ block content
 
   div.container
     header
+      a(href='#contact') Contact me
+      a(href='#projects') See project
 
     div.col.left
-      section.one
-        h2 About me
-        p!= info.about
+      section.card
+        h2.card__title About me
+        div.card__content.card__content--table
+          div!= info.about
 
-      section.three
-        h2 Projects
-        each project in projects
-          p!= project.title
-          p!= project.description
-          a(href='/project/'+project.id) Take a look!
-          //img(src='/site/images/uploaded/'+project.thumbnail)
+      section.card
+        h2.card__title Projects
+        div.card__content.card__content--table
+          div
+            each project in projects
+              div.card__project
+                img(src='/site/images/uploaded/'+project.thumbnail)
+                p!= project.title
+                a(href='/project/'+project.id) Take a look!
 
     div.col.right
-      section.two
-        h2 Latest project
-        p!= latest.title
-        p!= latest.description
-        a(href='/project/'+latest.id) Take a look!
+      section#projects.card
+        h2.card__title Latest project
+        div.card__content.card__content--table
+          div
+            img.card__image(src='/site/images/uploaded/'+latest.cover)
+            p!= latest.title
+            p!= latest.description
+            a(href='/project/'+latest.id) Take a look!
+
+    section.slider
+
+    section#contact.contact
+      article.form
+        form
+          label(for="email") Email :
+          input(type="text", id="email", name="email", placeholder="example@yourdomain.com")
+          label(for="subject") Subject :
+          input(type="text", id="subject", name="subject", placeholder="Super duper project")
+          label(for="message") Message :
+          textarea(id="message", name="message", placeholder="Hey mate I thought of you for my super duper project!")
+      article.media
+        div.media__personnal
+          p
+            i.ti-email
+            a(href='mailto:' + info.email) #{info.email}
+          p
+            i.ti-mobile
+            | #{info.phone}
+        div.media__external
+          a(href=info.github, target='_blank')
+            i.ti-github
+          a(href=info.twitter, target='_blank')
+            i.ti-twitter-alt
+          a(href=info.linkedin, target='_blank')
+            i.ti-linkedin
+          a(href=info.codepen, target='_blank')
+            | Codepen
+
+
 
     footer
-      p Footer full width
+      p Raphaël Parent © 2016
