@@ -31,16 +31,18 @@
 			slider.style.marginTop = '-350px';
 		}
 
-		if(window.innerWidth < 720)
+		header.style.height = sections[0].style.height;
+
+
+		if(window.innerWidth < 720) {
 			leftCol.style.marginTop = 0;
+			header.style.height = 'auto';
+		}
 
 		for(var i = 0, slength = sections.length; i < slength; i++){
 			sections[i].style.height = sections[i].clientWidth + 'px';
 		}
 
-		console.log('foo');
-
-		header.style.height = sections[0].style.height;
 		slider.style.height = sections[0].style.height;
 
 	}

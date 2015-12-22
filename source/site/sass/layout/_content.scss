@@ -97,7 +97,12 @@
 @media screen and (max-width: 720px) {
 	.col
 	{
-		width: 100%
+		width: 100%;
+
+		&.right {
+			display: none;
+		}
+
 	}
 }
 

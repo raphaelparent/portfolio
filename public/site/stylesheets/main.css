@@ -150,20 +150,17 @@ h1 {
     width: 40%;
     min-width: 200px;
     font-size: 60px; }
-  header > div {
-    position: absolute;
-    top: 315px;
-    left: 25%; }
-  header div {
-    width: 100%;
-    border-top: 2px solid rgba(30, 30, 30, 0.34);
-    display: block;
-    -webkit-transform: rotate(185deg) scale(1) translate3d(0em, 2em, 0);
-            transform: rotate(185deg) scale(1) translate3d(0em, 2em, 0); }
+  header
+.buttons {
+    position: relative;
+    left: 30px;
+    top: 40vh; }
 
 @media screen and (max-width: 720px) {
   header {
-    min-height: 300px; } }
+    height: 300px !important; }
+  .buttons {
+    top: 250px; } }
 
 .col {
   display: block;
@@ -232,7 +229,9 @@ p {
 
 @media screen and (max-width: 720px) {
   .col {
-    width: 100%; } }
+    width: 100%; }
+    .col.right {
+      display: none; } }
 
 @media screen and (max-width: 500px) {
   .card__project {
@@ -247,8 +246,13 @@ p {
 .slide {
   width: 100%;
   height: 100%;
+  background-repeat: no-repeat;
   background-size: cover;
   background-position: center center; }
+
+@media screen and (max-width: 720px) {
+  .slide {
+    background-position: 40% 315px; } }
 
 .contact {
   padding: 40px 0;
@@ -282,6 +286,11 @@ p {
   width: 25%;
   text-align: center; }
 
+@media screen and (max-width: 720px) {
+  .email-form,
+  .media {
+    width: 100%; } }
+
 footer {
   clear: both;
   padding: 50px 0;
@@ -298,7 +307,8 @@ button, .button {
   text-decoration: none;
   border-radius: 2px;
   border: none;
-  cursor: pointer; }
+  cursor: pointer;
+  margin-right: 15px; }
 
 .form__group {
   margin-top: 30px; }
@@ -315,3 +325,27 @@ button, .button {
 
 .home h3 {
   text-align: center; }
+
+.project {
+  text-align: center; }
+  .project img {
+    max-width: 95%; }
+  .project .go-back {
+    position: absolute;
+    font-size: 72px;
+    font-weight: bold;
+    left: 15px;
+    text-decoration: none; }
+  .project .col {
+    height: 100vh; }
+    .project .col-image img {
+      position: relative;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translateY(-50%) translateX(-50%);
+          -ms-transform: translateY(-50%) translateX(-50%);
+              transform: translateY(-50%) translateX(-50%); }
+  .project .half-height {
+    box-sizing: border-box;
+    height: 50vh;
+    padding: 15vh 20px 0; }

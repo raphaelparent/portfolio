@@ -1,0 +1,43 @@
+.project
+{
+
+	text-align: center;
+
+	img {
+		max-width: 95%;
+	}
+
+	.go-back {
+		position: absolute;
+		font-size: 72px;
+		font-weight: bold;
+		left: 15px;
+		text-decoration: none;
+	}
+
+	.col {
+
+		height: 100vh;
+
+		&-image {
+
+			img	 {
+				position: relative;
+				top: 50%;
+				left: 50%;
+				transform: translateY(-50%) translateX(-50%);
+			}
+
+		}
+
+	}
+
+	.half-height {
+		box-sizing: border-box;
+		height: 50vh;
+		padding: 15vh 20px 0;
+	}
+
+
+
+}

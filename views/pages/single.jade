@@ -1,0 +1,21 @@
+extends ../layout
+
+block content
+
+  a(href="/#projects", class="go-back") ↞
+
+  div.col.col-image
+    img(src='/site/images/uploaded/'+project.cover)
+
+  div.col
+    div.half-height
+      h2!= project.title
+      p!= project.description
+
+    div.half-height
+      if(project.link.length > 0)
+        a(href="#{project.link}") See the website
+
+      if(project.credits.length > 0)
+        p People who worked with me: &nbsp;
+          strong #{project.credits}

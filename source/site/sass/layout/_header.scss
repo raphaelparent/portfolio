@@ -19,23 +19,25 @@ header
 		font-size: 60px;
 	}
 
-	& > div{
-		position: absolute;
-		top: 315px;
-		left: 25%;
+	.buttons
+	{
+		position: relative;
+		left: 30px;
+		top: 40vh;
 	}
 
-	div {
-		width: 100%;
-		border-top:2px solid rgba(30, 30, 30, 0.34);
-		display: block;
-		transform: rotate(185deg) scale(1) translate3d(0em,2em,0);
-	}
 }
 
 @media screen and (max-width: 720px) {
+
 	header
 	{
-		min-height: 300px;
+		height: 300px !important;
 	}
+
+	.buttons
+	{
+		top: 250px;
+	}
+
 }

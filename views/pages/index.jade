@@ -4,8 +4,9 @@ block content
 
   div.container
     header
-      a.button(href='#contact') Contact me
-      a.button(href='#projects') See project
+      div.buttons
+        a.button(href='#contact') Contact me
+        a.button(href='#projects') See project
 
     div.col.left
       section.card
@@ -34,7 +35,7 @@ block content
             a(href='/project/'+latest.id) Take a look!
 
     section.slider
-      div.slide(style={'background-image': 'url(http://www.fillmurray.com/1600/900)'})
+      div.slide(style={'background-image': 'url("/site/images/myself.jpg")'})
 
     section#contact.contact
       h3 Get in touch
@@ -70,8 +71,3 @@ block content
             i.ti-linkedin
           a(href=info.codepen, target='_blank')
             | Codepen
-
-
-
-    footer
-      p Raphaël Parent © 2016
